@@ -210,7 +210,7 @@
   if (cv) {
   const ctx = cv.getContext('2d');
   let W, H, cx, cy, R, dpr, mx = null, my = null, vis = true, raf;
-  const AMB = '255,173,0', IRI = '11,58,143', OK = '15,174,126', BAD = '229,51,79';
+  const AMB = '255,173,0', IRI = '11,58,143', OK = '5,22,77', BAD = '229,51,79';
   const nodes = [], packets = [], flashes = [], outer = [];
   const rnd = (a, b) => a + Math.random() * (b - a);
 

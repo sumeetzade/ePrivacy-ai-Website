@@ -496,3 +496,34 @@ h1.h2like{font-size:clamp(1.9rem,3.6vw,3rem);font-weight:700;margin:14px 0 18px}
 .sol-cards.three{grid-template-columns:repeat(3,minmax(0,1fr))}
 .sol-cards.three .sol:last-child:nth-child(odd){grid-column:auto}
 @media (max-width:980px){.sol-cards.three{grid-template-columns:minmax(0,1fr)}.crumb-bar{padding-top:96px}}
+
+/* new logo + reversed (yellow on navy) accents */
+.brand .logo{display:block;height:52px;width:auto}
+.brand svg{display:none}
+.btn-primary{background:var(--indigo);color:var(--amber);border:2px solid var(--indigo)}
+.btn-primary:hover{background:#0b2a7a;border-color:#0b2a7a}
+.menu .menu-cta{color:var(--amber)}
+.cta-band .btn-primary,.calc-out .btn-primary{border-color:var(--amber)}
+.cta-band .btn-primary:hover,.calc-out .btn-primary:hover{background:var(--amber);color:var(--indigo)}
+.badge{background:var(--indigo);color:var(--amber)}
+.co-top b{background:var(--indigo);color:var(--amber);border:1px solid var(--amber)}
+.tab-ink{background:var(--indigo)}.tabs button[aria-selected=true]{color:var(--amber)}
+.brand .logo{height:46px;width:auto}
+.foot-logo{display:block;height:46px;width:auto}
+@media (max-width:980px){.brand .logo{height:38px}}
+.brand .logo{height:54px}
+@media (max-width:980px){.brand .logo{height:42px}}
+
+/* red/green only where meaning needs it: leak vs contained diagram, answer pass/fail, form errors, blocked egress in hero */
+.eyebrow .dot{background:var(--amber);animation:none}
+.n3{fill:var(--indigo)}
+.ecg{stroke:var(--indigo)}
+.nowifi .slash{stroke:var(--amber)}
+.arch{border:1.5px dashed var(--indigo);background:#fff}
+.perim-label{color:var(--indigo);font-weight:500}
+.egress{background:#fff;border:1px dashed var(--indigo)}
+.egress b{color:var(--indigo)}
+.tier li::before{color:var(--indigo);font-weight:700}
+.assure{background:var(--bg2);border:1px solid var(--line)}
+.ok{color:var(--indigo)}
+.bar .red{background:#fff}.bar .grn{background:var(--amber)}
