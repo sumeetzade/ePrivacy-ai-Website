@@ -38,7 +38,15 @@
   burger.addEventListener('click', () => {
     const o = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', o);
   });
-  $$('.menu a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); burger.setAttribute('aria-expanded', false); }));
+  const mobile = matchMedia('(max-width: 980px)');
+  $$('.dd-t').forEach(t => t.addEventListener('click', e => {
+    if (!mobile.matches) return;
+    e.preventDefault();
+    const dd = t.parentElement, open = !dd.classList.contains('open');
+    $$('.dd').forEach(x => x.classList.remove('open'));
+    dd.classList.toggle('open', open);
+  }));
+  $$('.menu a:not(.dd-t)').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); burger.setAttribute('aria-expanded', false); }));
   if (fine) addEventListener('pointermove', e => { glow.style.transform = `translate3d(${e.clientX}px,${e.clientY}px,0)`; }, { passive: true });
 
   /* ---------- reveal (staggered per parent) ---------- */
