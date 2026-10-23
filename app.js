@@ -80,19 +80,6 @@
     b.addEventListener('pointerleave', () => b.style.transform = '');
   });
 
-  /* ---------- tabs ---------- */
-  const tabs = $$('.tabs button'), ink = $('.tab-ink');
-  function setTab(k) {
-    tabs.forEach(t => t.setAttribute('aria-selected', t.dataset.tab === k));
-    $$('.panel').forEach(p => p.classList.toggle('on', p.dataset.panel === k));
-    const a = tabs.find(t => t.dataset.tab === k);
-    ink.style.width = a.offsetWidth + 'px'; ink.style.transform = `translateX(${a.offsetLeft - 6}px)`;
-  }
-  tabs.forEach(t => t.addEventListener('click', () => setTab(t.dataset.tab)));
-  $$('.dd-m a[data-tab]').forEach(a => a.addEventListener('click', () => setTab(a.dataset.tab)));
-  addEventListener('resize', () => setTab(tabs.find(t => t.getAttribute('aria-selected') === 'true').dataset.tab));
-  document.fonts && document.fonts.ready.then(() => setTab('edu')); setTab('edu');
-
   /* ---------- architecture detail ---------- */
   const D = {
     idp: ['Identity & Access Management', 'Direct federation with Okta, Microsoft Entra ID (Azure AD), Google Workspace, SAML 2.0, OAuth2/OIDC and LDAP, with custom role mappings. RBAC goes down to document metadata tags and model-routing permissions.'],
@@ -104,12 +91,15 @@
     inf: ['Private Inference Engines', 'vLLM (PagedAttention, continuous batching), TensorRT-LLM or Ollama on local NVIDIA/AMD GPUs, with FP8, INT4 and AWQ quantization. Context caches are flushed from VRAM after each agentic run.']
   };
   const det = $('#detail');
+  if (det) {
   const show = k => { det.innerHTML = `<h4>${D[k][0]}</h4><p>${D[k][1]}</p>`; $$('.node').forEach(n => n.classList.toggle('on', n.dataset.k === k)); };
   $$('.node').forEach(n => n.addEventListener('click', () => show(n.dataset.k)));
   show('idp');
+  }
 
   /* ---------- confidence threshold ---------- */
   const thr = $('#thr'), thrOut = $('#thr-out');
+  if (thr) {
   const verdicts = () => {
     const t = +thr.value; thrOut.textContent = t + '%';
     $$('.answers li').forEach(li => {
@@ -119,9 +109,12 @@
     });
   };
   thr.addEventListener('input', verdicts); verdicts();
+  }
 
   /* ---------- cost viz ---------- */
-  const us = $('#users'), usOut = $('#users-out'), ds = $('#cv-dot-s'), df = $('#cv-dot-f'), ls = $('#cv-lab-s');
+  const us = $('#users');
+  if (us) {
+  const usOut = $('#users-out'), ds = $('#cv-dot-s'), df = $('#cv-dot-f'), ls = $('#cv-lab-s');
   const cost = () => {
     const p = +us.value / 100; usOut.textContent = us.value + '%';
     const x = 40 + p * 420, ys = 210 - p * 170;
@@ -129,17 +122,72 @@
     ls.setAttribute('x', 456); ls.setAttribute('y', 36 - 4);
   };
   us.addEventListener('input', cost); cost();
+  }
+
+
+  /* ---------- ROI calculator ---------- */
+  const calc = $('#calc');
+  if (calc) {
+    const usd = n => '$' + Math.round(n).toLocaleString('en-US');
+    let mode = 'cloud_vpc';
+    const g = id => document.getElementById(id);
+    const run = () => {
+      const users = +g('c-users').value, seat = +g('c-seat').value, q = +g('c-q').value;
+      g('c-users-o').textContent = users.toLocaleString('en-US'); g('c-seat-o').textContent = '$' + seat; g('c-q-o').textContent = q + ' prompts';
+      const base = users * seat * 12;
+      const overage = q > 20 ? users * (q - 20) * 0.008 * 250 : 0;
+      const saas = Math.round(base + overage);
+      let lic = 36000;
+      if (users > 5000) lic = 78000; else if (users > 2000) lic = 58000; else if (users > 800) lic = 48000;
+      const conc = Math.max(1, Math.ceil(users * q / (8 * 60)));
+      const nodes = Math.max(1, Math.ceil(conc / 25));
+      const compute = mode === 'cloud_vpc' ? nodes * 1800 * 12 : nodes * 950 * 12;
+      const ep = Math.round(lic + compute);
+      const save = Math.max(0, saas - ep), pct = saas > 0 ? Math.round(save / saas * 100) : 0;
+      g('o-pct').textContent = pct + '% cost reduction';
+      g('o-save').textContent = usd(save); g('o-3y').textContent = usd(save * 3);
+      g('o-pay').textContent = save > 0 ? (lic / save * 12).toFixed(1) + ' months' : 'not reached';
+      g('o-saas').textContent = usd(saas) + ' / yr'; g('o-ep').textContent = usd(ep) + ' / yr';
+      g('bar-ep').style.width = Math.min(100, Math.round(ep / saas * 100)) + '%';
+      g('o-lic').textContent = usd(lic);
+      g('o-gpu-l').textContent = 'Estimated GPU infrastructure (' + nodes + (nodes === 1 ? ' node' : ' nodes') + ')';
+      g('o-gpu').textContent = usd(compute);
+      calc.dataset.scenario = JSON.stringify({ users, seat, q, mode, saas, ep, save });
+    };
+    ['c-users', 'c-seat', 'c-q'].forEach(id => g(id).addEventListener('input', run));
+    $$('.seg button', calc).forEach(b => b.addEventListener('click', () => {
+      mode = b.dataset.mode;
+      $$('.seg button', calc).forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', x === b); });
+      run();
+    }));
+    run();
+    const modal = g('lead'), open = () => { modal.hidden = false; $('input', modal).focus(); }, close = () => { modal.hidden = true; };
+    g('open-lead').addEventListener('click', open);
+    g('lead-x').addEventListener('click', close);
+    modal.addEventListener('click', e => { if (e.target === modal) close(); });
+    addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+    g('lead-form').addEventListener('submit', e => {
+      e.preventDefault();
+      let ok = true;
+      $$('[required]', e.target).forEach(i => { const bad = !i.value.trim() || (i.type === 'email' && !/^\S+@\S+\.\S+$/.test(i.value)); i.classList.toggle('err', bad); if (bad) ok = false; });
+      if (!ok) return;
+      // TODO: POST { ...Object.fromEntries(new FormData(e.target)), scenario: calc.dataset.scenario } to your backend and generate the PDF server-side
+      g('lead-ok').hidden = false;
+    });
+  }
 
   /* ---------- timeline progress ---------- */
   const tl = $('#timeline');
+  if (tl) {
   const tlp = () => {
     const r = tl.getBoundingClientRect();
     tl.style.setProperty('--tl', Math.max(0, Math.min(1, (innerHeight * .8 - r.top) / (r.height + 40))) * 100 + '%');
   };
   addEventListener('scroll', tlp, { passive: true }); tlp();
+  }
 
   /* ---------- form ---------- */
-  $('#form').addEventListener('submit', e => {
+  $('#form')?.addEventListener('submit', e => {
     e.preventDefault();
     let ok = true;
     $$('[required]', e.target).forEach(i => { const bad = !i.value.trim(); i.classList.toggle('err', bad); if (bad) ok = false; });
@@ -150,9 +198,11 @@
   $('#yr').textContent = new Date().getFullYear();
 
   /* ---------- hero canvas: agents inside a perimeter, egress attempts blocked ---------- */
-  const cv = $('#hero-canvas'), ctx = cv.getContext('2d');
+  const cv = $('#hero-canvas');
+  if (cv) {
+  const ctx = cv.getContext('2d');
   let W, H, cx, cy, R, dpr, mx = null, my = null, vis = true, raf;
-  const AMB = '232,146,10', IRI = '91,61,245', OK = '15,174,126', BAD = '239,62,92';
+  const AMB = '255,173,0', IRI = '11,58,143', OK = '15,174,126', BAD = '229,51,79';
   const nodes = [], packets = [], flashes = [], outer = [];
   const rnd = (a, b) => a + Math.random() * (b - a);
 
@@ -179,7 +229,7 @@
     outer.forEach(o => {
       o.a += o.s;
       const x = cx + Math.cos(o.a) * R * o.r * 1.1, y = cy + Math.sin(o.a) * R * o.r * 0.85;
-      ctx.fillStyle = 'rgba(32,10,121,.22)'; ctx.beginPath(); ctx.arc(x, y, o.z, 0, 6.283); ctx.fill();
+      ctx.fillStyle = 'rgba(5,22,77,.22)'; ctx.beginPath(); ctx.arc(x, y, o.z, 0, 6.283); ctx.fill();
     });
     // perimeter glow + dashed ring
     const g = ctx.createRadialGradient(cx, cy, R * .6, cx, cy, R * 1.25);
@@ -244,4 +294,5 @@
   new IntersectionObserver(e => { vis = e[0].isIntersecting; }).observe(cv);
   cv.addEventListener('pointermove', e => { const r = cv.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; });
   cv.addEventListener('pointerleave', () => { mx = my = null; });
+  }
 })();

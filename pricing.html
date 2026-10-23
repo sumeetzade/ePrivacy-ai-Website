@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing &amp; ROI Calculator · ePrivacy-AI</title>
+<meta name="description" content="Flat annual licensing, bring-your-own-compute, and an interactive TCO and ROI calculator comparing ePrivacy-AI with per-seat SaaS AI.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="progress" aria-hidden="true"><i></i></div>
+<div class="cursor-glow" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="index.html#top" class="brand" aria-label="ePrivacy-AI home">
+      <svg viewBox="0 0 70 78" width="34" height="38" aria-hidden="true">
+        <rect x="2" y="26" width="66" height="50" rx="9" fill="#f5b732"/>
+        <text x="27" y="64" text-anchor="middle" font-family="Sora,sans-serif" font-weight="800" font-size="40" fill="#200a79">ai</text>
+        <rect x="46" y="38" width="16" height="13" rx="2.5" fill="#200a79"/>
+        <path d="M49.5 38v-4a4.5 4.5 0 0 1 9 0v4" fill="none" stroke="#200a79" stroke-width="3"/>
+        <text x="35" y="19" text-anchor="middle" font-family="Sora,sans-serif" font-weight="600" font-size="16" textLength="64" lengthAdjust="spacingAndGlyphs" fill="#200a79">ePrivacy</text>
+      </svg>
+      <span class="brand-name">ePrivacy<b>-AI</b></span>
+    </a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <div class="dd">
+        <a href="index.html#solutions" class="dd-t">Solutions<span>▾</span></a>
+        <div class="dd-m"><a href="solutions-higher-education.html">Higher Education &amp; Research</a><a href="solutions-healthcare.html" aria-current="page">Healthcare &amp; Life Sciences</a><a href="solutions-legal-enterprise.html">Financial Services &amp; Legal</a><a href="solutions-public-sector.html">Public Sector &amp; Defense</a></div>
+      </div>
+      <div class="dd">
+        <a href="index.html#platform" class="dd-t">Platform<span>▾</span></a>
+        <div class="dd-m">
+          <a href="index.html#platform">Architecture &amp; Sovereignty</a>
+          <a href="index.html#models">Model Agnosticism &amp; Routing</a>
+          <a href="index.html#guardrails">Knowledge Base &amp; Guardrails</a>
+        </div>
+      </div>
+      <a href="index.html#security">Trust &amp; Compliance</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#deployment">Deployment</a>
+      <a href="index.html#contact" class="btn btn-sm btn-primary menu-cta">Schedule an Architectural Review</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+<main id="top">
+<section class="page-hero">
+  <div class="grid-bg" aria-hidden="true"></div><div class="orb orb-a" aria-hidden="true"></div><div class="orb orb-b" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a><span>/</span><span>Pricing</span></div>
+    <span class="eyebrow"><i class="dot"></i>Pricing &amp; commercial models</span>
+    <h1 id="h1">Predictable, transparent <em>institutional licensing.</em></h1>
+    <p class="lead reveal">Eliminate per-token penalties and uncontrollable SaaS fees. Scale AI usage across your entire organization with predictable budgetary certainty.</p>
+    <div class="cta-row reveal"><a href="#calculator" class="btn btn-primary magnetic">Try the ROI calculator <span class="arr">↓</span></a><a href="index.html#contact" class="btn btn-ghost magnetic">Request quote &amp; spec</a></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The commercial philosophy</span><h2>Adoption should not be <em>penalized.</em></h2>
+      <p class="lead">Traditional enterprise AI software charges per seat or per token. ePrivacy-AI uses an infrastructure-aligned bring-your-own-compute (BYOC) flat license. Your costs stay predictable whether your institution runs 10,000 queries or 10,000,000 queries per month.</p></div>
+    <div class="cols3">
+      <article class="card spot reveal"><span class="ico">▣</span><h4>Software license (annual)</h4><p>A flat fee covering core platform orchestration, the agent engine, web workspaces, connectors, and software updates.</p></article>
+      <article class="card spot reveal"><span class="ico">⚙</span><h4>Compute freedom, zero markup</h4><p>Run on your existing on-prem servers (NVIDIA DGX, Dell/HP GPU servers) or your own AWS, Azure or GCP account. You pay your provider directly at your negotiated rates.</p></article>
+      <article class="card spot reveal"><span class="ico">⇢</span><h4>Implementation (one-time)</h4><p>Hands-on engineering for bare-metal setup, Kubernetes deployment, single sign-on integration, and custom connector configuration.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Deployment tiers</span><h2>Three ways to <em>deploy.</em></h2></div>
+    <div class="tiers">
+      <article class="tier spot reveal"><h4>Private Cloud</h4><small>VPC cluster</small><p class="for">For single institutions or mid-size enterprises deploying in their VPC.</p>
+        <ul><li>Flat annual platform license</li><li>Up to 2 clusters</li><li>Standard SSO &amp; RBAC</li><li>Full RAG &amp; Agent Hub</li><li>Bring your own compute</li></ul><a href="#contact" class="btn btn-ghost">Request Quote &amp; Spec</a></article>
+      <article class="tier feat spot reveal"><span class="badge">Most common</span><h4>Enterprise Campus</h4><small>Hybrid / multi-VPC</small><p class="for">For multi-campus universities and health systems at scale.</p>
+        <ul><li>Multi-tenant / multi-department routing</li><li>Unlimited clusters</li><li>Enterprise LTI / CRM</li><li>Dedicated engineering SLA &amp; support</li><li>Bring your own compute</li></ul><a href="#contact" class="btn btn-primary">Schedule Custom Scope</a></article>
+      <article class="tier spot reveal"><h4>Air-Gapped Sovereign</h4><small>Critical infrastructure</small><p class="for">For defense, research labs and intelligence needing zero internet.</p>
+        <ul><li>Completely air-gapped offline license</li><li>Bare-metal or private GPU cloud</li><li>Custom model fine-tuning &amp; hardening</li><li>Source code escrow</li></ul><a href="#contact" class="btn btn-ghost">Contact Gov/Def Team</a></article>
+    </div>
+
+    
+  </div>
+</section>
+
+<section class="sec" id="calculator">
+  <div class="wrap">
+    <div class="calc reveal" id="calc">
+  <div class="calc-head">
+    <span class="eyebrow">Enterprise sovereign TCO model</span>
+    <h2>Sovereign vs. SaaS AI <em>ROI calculator</em></h2>
+    <p>Compare ePrivacy-AI's fixed bring-your-own-compute (BYOC) model with seat-metered commercial cloud AI as your organization scales.</p>
+  </div>
+  <div class="calc-grid">
+    <div class="calc-in">
+      <h3>Your institutional parameters</h3>
+      <div class="ctl"><label for="c-users">Active knowledge workers / students <output id="c-users-o">1,200</output></label>
+        <input id="c-users" type="range" min="100" max="8000" step="100" value="1200"><div class="ticks"><span>100</span><span>4,000</span><span>8,000+</span></div></div>
+      <div class="ctl"><label for="c-seat">Current SaaS cost / seat / month <output id="c-seat-o">$30</output></label>
+        <input id="c-seat" type="range" min="15" max="60" step="5" value="30"><div class="ticks"><span>$15 Edu/Basic</span><span>$30 Enterprise</span><span>$60 Specialized</span></div></div>
+      <div class="ctl"><label for="c-q">Average queries / user / day <output id="c-q-o">15 prompts</output></label>
+        <input id="c-q" type="range" min="5" max="50" step="5" value="15"><div class="ticks"><span>5</span><span>25</span><span>50</span></div></div>
+      <div class="ctl"><span class="lbl">Compute deployment environment</span>
+        <div class="seg" role="group" aria-label="Compute deployment environment">
+          <button type="button" class="on" data-mode="cloud_vpc" aria-pressed="true">Private Cloud VPC<small>AWS Bedrock / Azure VMs</small></button>
+          <button type="button" data-mode="on_prem" aria-pressed="false">On-Premise Bare Metal<small>DGX / Dell GPU clusters</small></button>
+        </div></div>
+    </div>
+    <div class="calc-out" aria-live="polite">
+      <div class="co-top"><span>Projected financial impact</span><b id="o-pct">0% cost reduction</b></div>
+      <div class="co-stats">
+        <div><small>Annual operational savings</small><strong id="o-save">$0</strong><em>Year 1 cash retained</em></div>
+        <div><small>3-year cumulative savings</small><strong id="o-3y">$0</strong><em>Est. payback: <b id="o-pay">0</b></em></div>
+      </div>
+      <div class="bars">
+        <div><div class="bl"><span>Current per-seat commercial SaaS</span><b id="o-saas">$0 / yr</b></div><div class="bar"><i class="red" style="width:100%"></i></div></div>
+        <div><div class="bl"><span>ePrivacy-AI sovereign BYOC</span><b id="o-ep">$0 / yr</b></div><div class="bar"><i class="grn" id="bar-ep"></i></div></div>
+      </div>
+      <dl class="brk">
+        <div><dt>ePrivacy-AI base platform software license</dt><dd id="o-lic">$0</dd></div>
+        <div><dt id="o-gpu-l">Estimated GPU infrastructure</dt><dd id="o-gpu">$0</dd></div>
+      </dl>
+      <div class="co-cta"><p>Includes zero data egress guarantees and custom model weighting.</p>
+        <button type="button" class="btn btn-primary" id="open-lead">Export Custom TCO PDF <span class="arr">→</span></button></div>
+    </div>
+  </div>
+  <details class="method"><summary>How this is calculated</summary>
+    <p><b>Commercial SaaS:</b> users × seat fee × 12, plus token overage when usage exceeds 20 queries per user per day (users × queries above 20 × $0.008 × 250 workdays). Scales linearly with headcount and usage.</p>
+    <p><b>ePrivacy-AI:</b> a tiered annual software license ($36,000 up to 800 users, $48,000 up to 2,000, $58,000 up to 5,000, $78,000 above) plus infrastructure. GPU nodes are estimated from peak concurrency (one node per 25 concurrent users) at $1,800 per node per month in a private cloud VPC or $950 per node per month amortized on-premises. Compute scales sublinearly with continuous batching and quantized inference (vLLM).</p>
+    <p>Payback is the license cost divided by annual savings. This is an illustrative planning model with simplified assumptions, not a quote. Final pricing depends on your scope.</p>
+  </details>
+</div>
+<div class="modal" id="lead" hidden role="dialog" aria-modal="true" aria-labelledby="lead-t">
+  <div class="modal-box">
+    <button type="button" class="x" id="lead-x" aria-label="Close">×</button>
+    <h3 id="lead-t">Get your custom TCO summary</h3>
+    <p>We'll prepare an executive summary of this scenario for your CFO and CIO budget review.</p>
+    <form id="lead-form" novalidate>
+      <label>Work email<input name="email" type="email" required autocomplete="email"></label>
+      <label>Institutional domain<input name="domain" required placeholder="university.edu"></label>
+      <label>Target timeline<input name="timeline" placeholder="e.g. Pilot next semester"></label>
+      <button class="btn btn-primary" type="submit">Request TCO summary <span class="arr">→</span></button>
+      <p class="ok" id="lead-ok" hidden>Thank you. Your summary request has been received.</p>
+    </form>
+  </div>
+</div>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Total cost of ownership</span><h2>Commercial SaaS vs. <em>sovereign infrastructure.</em></h2></div>
+    <div class="compare reveal">
+      <div class="cmp-h"><span></span><b>Commercial SaaS AI</b><b class="us">ePrivacy-AI</b></div>
+      <div class="cmp-r"><span>Pricing scaling</span><p>Increases linearly with every employee or student added.</p><p class="us">Fixed annual cost. Unlimited users on your compute capacity.</p></div>
+      <div class="cmp-r"><span>Token costs</span><p>Metered per million tokens with vendor markup.</p><p class="us">At-cost compute at raw electricity or base cloud GPU rates.</p></div>
+      <div class="cmp-r"><span>Data custody</span><p>Stored on vendor cloud; subject to vendor TOS changes.</p><p class="us">100% self-hosted. Ownership of data and model weights.</p></div>
+      <div class="cmp-r"><span>Lock-in risk</span><p>Proprietary assistant configurations cannot be exported.</p><p class="us">Open standards, standard models and open agent schemas.</p></div>
+      <div class="cmp-r"><span>When a model changes</span><p>Vendor updates models, often breaking custom prompts.</p><p class="us">You choose when to freeze, update, or swap model weights.</p></div>
+    </div>
+
+    <div class="faq reveal">
+      <details><summary>Can we use open-source models exclusively to eliminate API costs?</summary><p>Yes. You can run open-weights (such as Llama 3 or Mistral) on your own GPUs with $0 external API token costs.</p></details>
+      <details><summary>Can we connect commercial APIs if our security policy permits?</summary><p>Yes. Route specific departments to private Azure OpenAI or Anthropic endpoints while routing sensitive teams to local, air-gapped models.</p></details>
+      <details><summary>What does the license cover?</summary><p>Platform orchestration, agent engine, web workspaces, connectors and software updates. Implementation and deployment packages (bare-metal setup, Kubernetes, SSO, custom connectors) are a one-time cost.</p></details>
+      <details><summary>Do you charge per seat?</summary><p>No. Add users, faculty, and students without ballooning per-seat software costs.</p></details>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div><h2>Get a scoped quote for your environment.</h2><p>Speak with a solutions architect about clusters, compliance and timeline. We sign mutual NDAs before any deep architectural review.</p><div class="cta-row" style="margin-bottom:0"><a href="index.html#contact" class="btn btn-primary magnetic">Speak With a Deployment Engineer <span class="arr">→</span></a></div></div>
+      <div class="others"><small>Explore next</small><a href="index.html#deployment"><span>30-day proof of concept</span><small>View →</small></a><a href="index.html#security"><span>Trust &amp; compliance</span><small>View →</small></a></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div><b class="brand-name">ePrivacy<b>-AI</b></b><p>Sovereign enterprise agent platform and self-hosted AI infrastructure.</p></div>
+    <div><h6>Solutions</h6><a href="solutions-higher-education.html">Higher Education &amp; Research</a><a href="solutions-healthcare.html">Healthcare &amp; Life Sciences</a><a href="solutions-legal-enterprise.html">Financial Services &amp; Legal</a><a href="solutions-public-sector.html">Public Sector &amp; Defense</a></div>
+    <div><h6>Product</h6><a href="index.html#platform">Architecture</a><a href="index.html#models">Supported models</a><a href="index.html#guardrails">Guardrails</a></div>
+    <div><h6>Governance</h6><a href="index.html#security">Security &amp; compliance</a><a href="index.html#security">Zero-data-retention</a><a href="index.html#pricing">Licensing</a></div>
+    <div><h6>Get started</h6><a href="index.html#deployment">30-day POC</a><a href="index.html#contact">Architectural review</a><a href="index.html#contact">On-prem evaluation license</a></div>
+  </div>
+  <div class="wrap foot-b"><span>© <span id="yr">2026</span> ePrivacy-AI. All rights reserved.</span><span>Sovereign AI. Your data, your perimeter.</span></div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

@@ -32,12 +32,7 @@
     <nav class="menu" id="menu" aria-label="Primary">
       <div class="dd">
         <a href="#solutions" class="dd-t">Solutions<span>▾</span></a>
-        <div class="dd-m">
-          <a href="#solutions" data-tab="edu">Higher Education &amp; Research</a>
-          <a href="#solutions" data-tab="health">Healthcare &amp; Life Sciences</a>
-          <a href="#solutions" data-tab="legal">Financial Services &amp; Legal</a>
-          <a href="#solutions" data-tab="gov">Public Sector &amp; Defense</a>
-        </div>
+        <div class="dd-m"><a href="solutions-higher-education.html">Higher Education &amp; Research</a><a href="solutions-healthcare.html">Healthcare &amp; Life Sciences</a><a href="solutions-legal-enterprise.html">Financial Services &amp; Legal</a><a href="solutions-public-sector.html">Public Sector &amp; Defense</a></div>
       </div>
       <div class="dd">
         <a href="#platform" class="dd-t">Platform<span>▾</span></a>
@@ -48,7 +43,7 @@
         </div>
       </div>
       <a href="#security">Trust &amp; Compliance</a>
-      <a href="#pricing">Pricing</a>
+      <a href="pricing.html">Pricing</a>
       <a href="#deployment">Deployment</a>
       <a href="#contact" class="btn btn-sm btn-primary menu-cta">Schedule an Architectural Review</a>
     </nav>
@@ -145,71 +140,10 @@
 <section class="sec alt" id="solutions">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Solutions · select your role</span>
+      <span class="eyebrow">Solutions · select your sector</span>
       <h2>Built for the institutions <em>that can't afford a leak.</em></h2>
     </div>
-    <div class="tabs reveal" role="tablist" aria-label="Industry solutions">
-      <button role="tab" aria-selected="true" data-tab="edu">Higher Education &amp; Research</button>
-      <button role="tab" aria-selected="false" data-tab="health">Healthcare &amp; Biomedical</button>
-      <button role="tab" aria-selected="false" data-tab="legal">Legal, Banking &amp; Enterprise</button>
-      <button role="tab" aria-selected="false" data-tab="gov">Public Sector &amp; Defense</button>
-      <i class="tab-ink"></i>
-    </div>
-
-    <div class="panels reveal">
-      <div class="panel on" data-panel="edu">
-        <div class="panel-copy">
-          <h3>FERPA-Compliant Course Mentors &amp; Research Compute</h3>
-          <p>Provide students with 24/7 Socratic tutoring grounded in specific syllabi, without exposing student records. Give research labs access to high-parameter LLMs running on campus clusters without exporting grant data.</p>
-          <ul class="chips"><li>LMS integration · Canvas, Moodle, Blackboard (LTI 1.3)</li><li>Automated syllabus ingestion</li><li>Zero external telemetry</li></ul>
-          <div class="flow3">
-            <div><small>Problem</small>Generic AI writes students' essays and returns inaccurate textbook facts.</div>
-            <div><small>Function</small>Agents guide step-by-step with Socratic prompts, pulling facts only from verified course material.</div>
-            <div><small>Outcome</small>Deeper comprehension, zero essay ghostwriting, complete LMS integration.</div>
-          </div>
-        </div>
-        <div class="panel-vis"><svg viewBox="0 0 300 260" aria-hidden="true"><circle class="rg" cx="150" cy="130" r="100"/><circle class="rg r2" cx="150" cy="130" r="64"/><g class="orbit"><circle cx="150" cy="30" r="9" class="n1"/><circle cx="236" cy="180" r="9" class="n2"/><circle cx="64" cy="180" r="9" class="n3"/></g><text x="150" y="126" text-anchor="middle" class="big">LTI</text><text x="150" y="148" text-anchor="middle" class="sm">1.3 · Canvas · Moodle</text></svg></div>
-      </div>
-      <div class="panel" data-panel="health">
-        <div class="panel-copy">
-          <h3>HIPAA-Aligned Clinical Assistance &amp; Operational Workflows</h3>
-          <p>Automate administrative paperwork, intake routing, and medical literature synthesis within isolated VPC boundaries where protected health information (PHI) never touches public networks.</p>
-          <ul class="chips"><li>BAA-ready architecture</li><li>Air-gapped deployment option</li><li>Deterministic medical citation retrieval</li></ul>
-          <div class="flow3">
-            <div><small>Use</small>Clinical trial protocol synthesis and cross-study comparison.</div>
-            <div><small>Use</small>Internal SOP, formulary and drug-interaction reference copilots.</div>
-            <div><small>Use</small>Extraction of unstructured discharge notes into structured formats.</div>
-          </div>
-        </div>
-        <div class="panel-vis"><svg viewBox="0 0 300 260" aria-hidden="true"><circle class="rg" cx="150" cy="130" r="100"/><path class="ecg" d="M20 130 H100 L115 90 L135 170 L150 110 L162 130 H280"/><text x="150" y="215" text-anchor="middle" class="sm">PHI never touches public networks</text></svg></div>
-      </div>
-      <div class="panel" data-panel="legal">
-        <div class="panel-copy">
-          <h3>High-Precision Contract Analysis &amp; Internal Helpdesks</h3>
-          <p>Deploy customer-facing or internal-facing agents with strict guardrails that prevent improvisation, cite verifiable internal documents, and preserve full attorney-client or banking confidentiality.</p>
-          <ul class="chips"><li>Hybrid deterministic workflow engine</li><li>Enterprise RBAC</li><li>Complete code &amp; document sandbox</li></ul>
-          <div class="flow3">
-            <div><small>Use</small>Multi-hundred-page contract cross-referencing and indemnification audits.</div>
-            <div><small>Use</small>Due diligence document indexing across structured data rooms.</div>
-            <div><small>Use</small>10-K, annual report and MCA filing cross-comparison.</div>
-          </div>
-        </div>
-        <div class="panel-vis"><svg viewBox="0 0 300 260" aria-hidden="true"><rect class="doc" x="70" y="40" width="130" height="170" rx="10"/><g class="lines"><path d="M90 76h90M90 96h70M90 116h90M90 136h60M90 156h80"/></g><rect class="hl" x="84" y="104" width="104" height="18" rx="4"/><text x="150" y="238" text-anchor="middle" class="sm">cited · sandboxed · wiped on close</text></svg></div>
-      </div>
-      <div class="panel" data-panel="gov">
-        <div class="panel-copy">
-          <h3>Air-Gapped Services for Public Sector &amp; Defense</h3>
-          <p>Citizen services, FOIA ingestion and inter-departmental knowledge bases that run on-premises with zero internet dependence.</p>
-          <ul class="chips"><li>Air-gapped on-premise</li><li>Offline signed licensing</li><li>Source code escrow</li></ul>
-          <div class="flow3">
-            <div><small>Use</small>Citizen services assistants grounded in published policy.</div>
-            <div><small>Use</small>FOIA document ingestion and triage.</div>
-            <div><small>Use</small>Shared knowledge bases across departments, with role-based access.</div>
-          </div>
-        </div>
-        <div class="panel-vis"><svg viewBox="0 0 300 260" aria-hidden="true"><circle class="rg" cx="150" cy="130" r="100"/><g class="nowifi"><path d="M90 110a90 90 0 0 1 120 0M110 134a60 60 0 0 1 80 0M132 158a28 28 0 0 1 36 0"/><circle cx="150" cy="178" r="5"/><path class="slash" d="M96 80L204 190"/></g><text x="150" y="228" text-anchor="middle" class="sm">zero internet dependence</text></svg></div>
-      </div>
-    </div>
+    <div class="sol-cards"><a class="sol reveal" href="solutions-higher-education.html"><svg class="mini" viewBox="0 0 300 260" aria-hidden="true"><circle class="rg" cx="150" cy="130" r="100"/><circle class="rg r2" cx="150" cy="130" r="64"/><g class="orbit"><circle cx="150" cy="30" r="9" class="n1"/><circle cx="236" cy="180" r="9" class="n2"/><circle cx="64" cy="180" r="9" class="n3"/></g><text x="150" y="126" text-anchor="middle" class="big">LTI</text><text x="150" y="148" text-anchor="middle" class="sm">1.3 · Canvas · Moodle</text></svg><small>Higher Education &amp; Research</small><h3>Institutional AI for Universities That Own Their Future.</h3><p>24/7 Socratic tutoring grounded in specific syllabi, and research compute on campus clusters, with no student records or grant data leaving the institution.</p><span class="go">Explore this solution</span></a><a class="sol reveal" href="solutions-healthcare.html"><svg class="mini" viewBox="0 0 300 260" aria-hidden="true"><circle class="rg" cx="150" cy="130" r="100"/><path class="ecg" d="M20 130 H100 L115 90 L135 170 L150 110 L162 130 H280"/><text x="150" y="215" text-anchor="middle" class="sm">PHI never touches public networks</text></svg><small>Healthcare &amp; Life Sciences</small><h3>Clinical and administrative AI where PHI never leaves your network.</h3><p>Administrative paperwork, intake routing, and literature synthesis inside isolated VPC boundaries, where PHI never touches public networks.</p><span class="go">Explore this solution</span></a><a class="sol reveal" href="solutions-legal-enterprise.html"><svg class="mini" viewBox="0 0 300 260" aria-hidden="true"><rect class="doc" x="70" y="40" width="130" height="170" rx="10"/><g class="lines"><path d="M90 76h90M90 96h70M90 116h90M90 136h60M90 156h80"/></g><rect class="hl" x="84" y="104" width="104" height="18" rx="4"/><text x="150" y="238" text-anchor="middle" class="sm">cited · sandboxed · wiped on close</text></svg><small>Financial Services &amp; Legal</small><h3>High-precision contract analysis and internal helpdesks.</h3><p>Contract analysis and internal helpdesks with strict guardrails, verifiable citations, and full attorney-client or banking confidentiality.</p><span class="go">Explore this solution</span></a><a class="sol reveal" href="solutions-public-sector.html"><svg class="mini" viewBox="0 0 300 260" aria-hidden="true"><circle class="rg" cx="150" cy="130" r="100"/><g class="nowifi"><path d="M90 110a90 90 0 0 1 120 0M110 134a60 60 0 0 1 80 0M132 158a28 28 0 0 1 36 0"/><circle cx="150" cy="178" r="5"/><path class="slash" d="M96 80L204 190"/></g><text x="150" y="228" text-anchor="middle" class="sm">zero internet dependence</text></svg><small>Public Sector &amp; Defense</small><h3>AI for public sector and defense that runs with zero internet.</h3><p>Citizen services, FOIA ingestion, and shared knowledge bases that run air-gapped, with zero internet dependence.</p><span class="go">Explore this solution</span></a></div>
   </div>
 </section>
 
@@ -329,50 +263,12 @@
       <h2>Predictable, transparent <em>institutional licensing.</em></h2>
       <p class="lead">No hidden per-message penalties or surprise cloud markup. A flat software licensing fee based on deployed clusters, so you can maximize compute utilization without cost escalation.</p>
     </div>
-
-    <div class="tiers">
-      <article class="tier spot reveal"><h4>Private Cloud</h4><small>VPC cluster</small><p class="for">For single institutions or mid-size enterprises deploying in their VPC.</p>
-        <ul><li>Flat annual platform license</li><li>Up to 2 clusters</li><li>Standard SSO &amp; RBAC</li><li>Full RAG &amp; Agent Hub</li><li>Bring your own compute</li></ul><a href="#contact" class="btn btn-ghost">Request Quote &amp; Spec</a></article>
-      <article class="tier feat spot reveal"><span class="badge">Most common</span><h4>Enterprise Campus</h4><small>Hybrid / multi-VPC</small><p class="for">For multi-campus universities and health systems at scale.</p>
-        <ul><li>Multi-tenant / multi-department routing</li><li>Unlimited clusters</li><li>Enterprise LTI / CRM</li><li>Dedicated engineering SLA &amp; support</li><li>Bring your own compute</li></ul><a href="#contact" class="btn btn-primary">Schedule Custom Scope</a></article>
-      <article class="tier spot reveal"><h4>Air-Gapped Sovereign</h4><small>Critical infrastructure</small><p class="for">For defense, research labs and intelligence needing zero internet.</p>
-        <ul><li>Completely air-gapped offline license</li><li>Bare-metal or private GPU cloud</li><li>Custom model fine-tuning &amp; hardening</li><li>Source code escrow</li></ul><a href="#contact" class="btn btn-ghost">Contact Gov/Def Team</a></article>
+    <div class="cols3">
+      <article class="card spot reveal"><span class="ico">▣</span><h4>Flat annual license</h4><p>Platform orchestration, agent engine, web workspaces, connectors and updates in one fee.</p></article>
+      <article class="card spot reveal"><span class="ico">⚙</span><h4>Bring your own compute</h4><p>Run on your own cloud account or GPU clusters and pay your provider directly, with no token markup.</p></article>
+      <article class="card spot reveal"><span class="ico">∞</span><h4>No per-seat penalty</h4><p>Add users, faculty, and students without ballooning software costs.</p></article>
     </div>
-
-    <div class="costviz reveal">
-      <div class="cv-copy">
-        <h3>How cost scales</h3>
-        <p>Traditional SaaS AI charges per seat or per token, so bills grow with adoption. ePrivacy-AI is a flat annual license on your own compute.</p>
-        <label for="users">Organization adoption <output id="users-out">50%</output></label>
-        <input type="range" id="users" min="5" max="100" value="50">
-        <small>Illustrative curve, not a price quote.</small>
-      </div>
-      <svg viewBox="0 0 480 260" id="cv" role="img" aria-label="Chart: SaaS cost rises with adoption, ePrivacy-AI cost stays flat">
-        <path class="axis" d="M40 20V220H460"/>
-        <path class="saas" id="cv-saas" d="M40 210 L460 40"/>
-        <path class="flat" d="M40 170 H460"/>
-        <circle id="cv-dot-s" r="6" class="dot-s"/><circle id="cv-dot-f" r="6" class="dot-f"/>
-        <text x="46" y="16" class="t2">Annual cost</text><text x="456" y="240" text-anchor="end" class="t2">Adoption →</text>
-        <text id="cv-lab-s" class="lab-s" text-anchor="end">Per-seat / per-token SaaS</text>
-        <text class="lab-f" x="456" y="162" text-anchor="end">ePrivacy-AI flat license</text>
-      </svg>
-    </div>
-
-    <div class="compare reveal">
-      <div class="cmp-h"><span></span><b>Commercial SaaS AI</b><b class="us">ePrivacy-AI</b></div>
-      <div class="cmp-r"><span>Pricing scaling</span><p>Increases linearly with every employee or student added.</p><p class="us">Fixed annual cost. Unlimited users on your compute capacity.</p></div>
-      <div class="cmp-r"><span>Token costs</span><p>Metered per million tokens with vendor markup.</p><p class="us">At-cost compute at raw electricity or base cloud GPU rates.</p></div>
-      <div class="cmp-r"><span>Data custody</span><p>Stored on vendor cloud; subject to vendor TOS changes.</p><p class="us">100% self-hosted. Ownership of data and model weights.</p></div>
-      <div class="cmp-r"><span>Lock-in risk</span><p>Proprietary assistant configurations cannot be exported.</p><p class="us">Open standards, standard models and open agent schemas.</p></div>
-      <div class="cmp-r"><span>When a model changes</span><p>Vendor updates models, often breaking custom prompts.</p><p class="us">You choose when to freeze, update, or swap model weights.</p></div>
-    </div>
-
-    <div class="faq reveal">
-      <details><summary>Can we use open-source models exclusively to eliminate API costs?</summary><p>Yes. You can run open-weights (such as Llama 3 or Mistral) on your own GPUs with $0 external API token costs.</p></details>
-      <details><summary>Can we connect commercial APIs if our security policy permits?</summary><p>Yes. Route specific departments to private Azure OpenAI or Anthropic endpoints while routing sensitive teams to local, air-gapped models.</p></details>
-      <details><summary>What does the license cover?</summary><p>Platform orchestration, agent engine, web workspaces, connectors and software updates. Implementation and deployment packages (bare-metal setup, Kubernetes, SSO, custom connectors) are a one-time cost.</p></details>
-      <details><summary>Do you charge per seat?</summary><p>No. Add users, faculty, and students without ballooning per-seat software costs.</p></details>
-    </div>
+    <div class="cta-row reveal" style="margin-top:34px"><a href="pricing.html" class="btn btn-primary magnetic">See pricing &amp; the ROI calculator <span class="arr">→</span></a></div>
   </div>
 </section>
 
@@ -425,8 +321,9 @@
 <footer class="foot">
   <div class="wrap foot-in">
     <div><b class="brand-name">ePrivacy<b>-AI</b></b><p>Sovereign enterprise agent platform and self-hosted AI infrastructure.</p></div>
+    <div><h6>Solutions</h6><a href="solutions-higher-education.html">Higher Education &amp; Research</a><a href="solutions-healthcare.html">Healthcare &amp; Life Sciences</a><a href="solutions-legal-enterprise.html">Financial Services &amp; Legal</a><a href="solutions-public-sector.html">Public Sector &amp; Defense</a></div>
     <div><h6>Product</h6><a href="#platform">Architecture</a><a href="#models">Supported models</a><a href="#guardrails">Guardrails</a></div>
-    <div><h6>Governance</h6><a href="#security">Security &amp; compliance</a><a href="#security">Zero-data-retention</a><a href="#pricing">Licensing</a></div>
+    <div><h6>Governance</h6><a href="#security">Security &amp; compliance</a><a href="#security">Zero-data-retention</a><a href="pricing.html">Licensing</a></div>
     <div><h6>Get started</h6><a href="#deployment">30-day POC</a><a href="#contact">Architectural review</a><a href="#contact">On-prem evaluation license</a></div>
   </div>
   <div class="wrap foot-b"><span>© <span id="yr">2026</span> ePrivacy-AI. All rights reserved.</span><span>Sovereign AI. Your data, your perimeter.</span></div>
