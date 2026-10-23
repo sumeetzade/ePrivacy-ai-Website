@@ -41,13 +41,24 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
 }
 
 $configFile = __DIR__ . '/config.php';
-$autoload = __DIR__ . '/vendor/autoload.php';
-if (!is_file($configFile) || !is_file($autoload)) {
-    error_log('send-mail.php: config.php or vendor/autoload.php missing');
+$autoload = __DIR__ . '/vendor/autoload.php';       // installed with Composer
+$manual = __DIR__ . '/phpmailer/src/PHPMailer.php'; // or uploaded by hand (see SETUP-EMAIL.md)
+$haveMailer = is_file($autoload) || is_file($manual);
+if (!is_file($configFile) || !$haveMailer) {
+    error_log('send-mail.php: missing '
+        . (!is_file($configFile) ? $configFile . ' ' : '')
+        . (!$haveMailer ? 'PHPMailer (vendor/autoload.php or phpmailer/src/PHPMailer.php) ' : '')
+        . '(looked in ' . __DIR__ . ')');
     respond(500, ['ok' => false, 'error' => 'Email is not set up on this server yet.']);
 }
 $cfg = require $configFile;
-require $autoload;
+if (is_file($autoload)) {
+    require $autoload;
+} else {
+    require __DIR__ . '/phpmailer/src/Exception.php';
+    require __DIR__ . '/phpmailer/src/PHPMailer.php';
+    require __DIR__ . '/phpmailer/src/SMTP.php';
+}
 
 // Only accept requests that come from our own site.
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';

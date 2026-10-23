@@ -50,3 +50,14 @@ if ($request_uri ~ ^/(.*)\.html(\?|$)) {
     return 301 /$1;
 }
 ```
+
+## No Composer on the server?
+
+1. Download PHPMailer from https://github.com/PHPMailer/PHPMailer/releases
+   (the latest 6.x "Source code (zip)") and unzip it on your PC.
+2. Upload its `src` folder to the site folder as `phpmailer/src`, so these
+   files exist next to `send-mail.php`:
+   - `phpmailer/src/PHPMailer.php`
+   - `phpmailer/src/SMTP.php`
+   - `phpmailer/src/Exception.php`
+3. `send-mail.php` uses them automatically. No `vendor` folder is needed.
