@@ -3,7 +3,7 @@
 The contact form and the "Export Custom TCO PDF" form post to `send-mail.php`,
 which emails `enquiry@eprivacy-ai.com` through your SMTP server using PHPMailer.
 
-## On the AWS server (PHP 8.1 or newer)
+## On the AWS server (PHP 7.4 or newer)
 
 1. Upload the site files to the web root, including `send-mail.php`,
    `composer.json` and `.htaccess`.

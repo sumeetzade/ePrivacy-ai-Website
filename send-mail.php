@@ -21,18 +21,23 @@ function respond(int $code, array $body): void
     exit;
 }
 
-function line(mixed $v, int $max = 200): string
+function cut(string $s, int $max): string
+{
+    return function_exists('mb_substr') ? mb_substr($s, 0, $max) : substr($s, 0, $max);
+}
+
+function line($v, int $max = 200): string
 {
     $s = is_string($v) ? $v : '';
     $s = preg_replace('/[\x00-\x1F\x7F]+/u', ' ', $s) ?? '';
-    return mb_substr(trim($s), 0, $max);
+    return cut(trim($s), $max);
 }
 
-function block(mixed $v, int $max = 4000): string
+function block($v, int $max = 4000): string
 {
     $s = is_string($v) ? $v : '';
     $s = preg_replace('/[^\P{C}\n]+/u', '', str_replace("\r", '', $s)) ?? '';
-    return mb_substr(trim($s), 0, $max);
+    return cut(trim($s), $max);
 }
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
@@ -71,7 +76,7 @@ if (strlen($raw) > 30000) {
     respond(413, ['ok' => false, 'error' => 'Request too large.']);
 }
 $ctype = $_SERVER['CONTENT_TYPE'] ?? '';
-$in = str_contains($ctype, 'application/json') ? (json_decode($raw, true) ?: []) : $_POST;
+$in = (strpos($ctype, 'application/json') !== false) ? (json_decode($raw, true) ?: []) : $_POST;
 if (!is_array($in)) {
     respond(400, ['ok' => false, 'error' => 'Invalid request.']);
 }
