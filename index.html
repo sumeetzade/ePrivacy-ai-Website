@@ -31,21 +31,17 @@
     </a>
     <nav class="menu" id="menu" aria-label="Primary">
       <div class="dd">
-        <a href="#solutions" class="dd-t">Solutions<span>▾</span></a>
+        <a href="solutions.html" class="dd-t">Solutions<span>▾</span></a>
         <div class="dd-m"><a href="solutions-enterprise.html">Enterprise &amp; Business</a><a href="solutions-legal-compliance.html">Legal &amp; Compliance</a><a href="solutions-banking-finance.html">Banking &amp; Finance</a><a href="solutions-ip-research.html">IP &amp; Research</a><a href="solutions-healthcare.html">Healthcare &amp; Biomedical</a><a href="solutions-public-sector-defence.html">Public Sector &amp; Defence</a><a href="solutions-education.html">Education &amp; eLearning</a></div>
       </div>
       <div class="dd">
-        <a href="#platform" class="dd-t">Platform<span>▾</span></a>
-        <div class="dd-m">
-          <a href="#platform">Architecture &amp; Sovereignty</a>
-          <a href="#models">Model Agnosticism &amp; Routing</a>
-          <a href="#guardrails">Knowledge Base &amp; Guardrails</a>
-        </div>
+        <a href="platform-architecture.html" class="dd-t">Platform<span>▾</span></a>
+        <div class="dd-m"><a href="platform-architecture.html">Architecture &amp; Sovereignty</a><a href="platform-models.html">Model Agnosticism &amp; Routing</a><a href="platform-guardrails.html">Knowledge Base &amp; Guardrails</a></div>
       </div>
-      <a href="#security">Trust &amp; Compliance</a>
+      <a href="security.html">Trust &amp; Compliance</a>
       <a href="pricing.html">Pricing</a>
-      <a href="#deployment">Deployment</a>
-      <a href="#contact" class="btn btn-sm btn-primary menu-cta">Schedule an Architectural Review</a>
+      <a href="deployment.html">Deployment</a>
+      <a href="contact.html" class="btn btn-sm btn-primary menu-cta">Schedule an Architectural Review</a>
     </nav>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
   </div>
@@ -63,8 +59,8 @@
       <h1 id="h1" aria-label="Enterprise Generative AI That Never Leaves Your Firewall.">Enterprise Generative AI That <em>Never Leaves Your Firewall.</em></h1>
       <p class="lead reveal">Deploy autonomous agents, institutional copilots, and private knowledge retrieval on your own hardware or dedicated cloud tenancy. Complete model freedom with zero data telemetry.</p>
       <div class="cta-row reveal">
-        <a href="#contact" class="btn btn-primary magnetic">Schedule Architectural Walkthrough <span class="arr">→</span></a>
-        <a href="#security" class="btn btn-ghost magnetic">Download Security &amp; Compliance Whitepaper</a>
+        <a href="contact.html" class="btn btn-primary magnetic">Schedule Architectural Walkthrough <span class="arr">→</span></a>
+        <a href="security.html" class="btn btn-ghost magnetic">Download Security &amp; Compliance Whitepaper</a>
       </div>
       <p class="trusted reveal">Trusted across regulated research institutions, university systems, and healthcare networks.</p>
     </div>
@@ -151,80 +147,17 @@
 <section class="sec" id="platform">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Technical blueprint · for engineering &amp; security teams</span>
+      <span class="eyebrow">Platform · for engineering &amp; security teams</span>
       <h2>Engineered for CISOs and <em>infrastructure architects.</em></h2>
-      <p class="lead">Think of ePrivacy-AI as a modular operating system. It sits between your internal users and your chosen computing infrastructure. If an open-source model becomes the best tomorrow, you plug it in without changing the software your team uses every day.</p>
+      <p class="lead">Think of ePrivacy-AI as a modular operating system. It sits between your internal users and your chosen computing infrastructure, so you can plug in a better model without changing the software your team uses every day.</p>
     </div>
-
-    <div class="arch reveal" id="arch">
-      <div class="perim-label">YOUR PERIMETER · private cloud VPC / bare metal / air-gapped</div>
-      <div class="layer l1"><h5>Enterprise control plane</h5>
-        <div class="nodes">
-          <button class="node on" data-k="idp">Identity &amp; Access<small>SAML 2.0 / OIDC</small></button>
-          <button class="node" data-k="audit">Audit Logs &amp; Token Quotas<small>SIEM-ready</small></button>
-        </div></div>
-      <div class="flowcol" aria-hidden="true"><i></i><i></i><i></i></div>
-      <div class="layer l2"><h5>ePrivacy-AI agent runtime</h5>
-        <div class="nodes">
-          <button class="node" data-k="parse">Context Extraction<small>Docling / table parser</small></button>
-          <button class="node" data-k="agents">Agent Blueprint Hub<small>Stateful ReAct / DAG</small></button>
-          <button class="node" data-k="guard">Prompt Guard<small>Sanitizer</small></button>
-        </div></div>
-      <div class="flowcol" aria-hidden="true"><i></i><i></i><i></i></div>
-      <div class="layer l3"><h5>Infrastructure / data plane</h5>
-        <div class="nodes">
-          <button class="node" data-k="vec">Vector &amp; Metadata DB<small>pgvector / Qdrant</small></button>
-          <button class="node" data-k="inf">Private Inference<small>vLLM / TensorRT-LLM</small></button>
-        </div></div>
-      <div class="egress"><span>🌐 Public internet</span><b>✕ no egress route required</b></div>
-    </div>
-    <aside class="detail reveal" id="detail" aria-live="polite"></aside>
-
-    <h3 class="sub reveal" id="models">Technical specifications</h3>
-    <div class="spec reveal">
-      <div class="spec-row"><b>Inference Engines</b><p>Direct integration with vLLM (PagedAttention), NVIDIA Triton, Ollama, or private cloud endpoints (AWS Bedrock, Azure OpenAI).</p></div>
-      <div class="spec-row"><b>Model Compatibility</b><p>Llama 3/3.3, Mistral/Mixtral, DeepSeek R1/V3, Qwen, Falcon, or any Hugging Face standard weight format.</p></div>
-      <div class="spec-row"><b>Vector Search &amp; RAG</b><p>Native Qdrant, pgvector, or Milvus integrations; hybrid dense/sparse search (BM25 + BGE/Cohere embeddings).</p></div>
-      <div class="spec-row"><b>Access Control (RBAC)</b><p>SAML 2.0, OAuth2/OIDC, Microsoft Entra ID, LDAP. Attribute-based document filtering at the vector retrieval layer.</p></div>
-      <div class="spec-row"><b>Data Encryption</b><p>AES-256 at rest; TLS 1.3 for the internal service mesh (mTLS via Istio or Linkerd).</p></div>
-      <div class="spec-row"><b>Auditing &amp; SIEM</b><p>JSON structured logging, Prometheus metrics, OpenTelemetry tracing, and syslog integration for Splunk/Datadog.</p></div>
-    </div>
-
-    <div class="cols3 pillars">
-      <article class="card spot reveal"><span class="ico">⇆</span><h4>Model Agnosticism</h4><p>Abstraction layer for local open-weights (Llama 3, Mistral Large, Qwen, DeepSeek) and private endpoints (Azure OpenAI, AWS Bedrock). Route departments to different models by policy.</p></article>
-      <article class="card spot reveal"><span class="ico">◎</span><h4>Deterministic RAG Engine</h4><p>Strict context boundaries so answers come only from authorized internal files, with line-level citations. Hybrid HNSW + BM25 with cross-encoder re-ranking.</p></article>
-      <article class="card spot reveal"><span class="ico">⚙</span><h4>Agentic Execution Engine</h4><p>Stateful, multi-step orchestration with code interpretation, SQL querying, and multi-document synthesis.</p></article>
-    </div>
+    <div class="sol-cards three"><a class="sol reveal" href="platform-architecture.html"><small>Platform</small><h3>Architecture &amp; Sovereignty</h3><p>Containerized deployment inside your perimeter with zero egress, identity federation, and customer-managed encryption.</p><span class="go">Explore</span></a><a class="sol reveal" href="platform-models.html"><small>Platform</small><h3>Model Agnosticism &amp; Routing</h3><p>Local open-weights and private commercial endpoints behind one workspace, with routing by department.</p><span class="go">Explore</span></a><a class="sol reveal" href="platform-guardrails.html"><small>Platform</small><h3>Knowledge Base &amp; Guardrails</h3><p>Deterministic RAG with line-level citations, confidence thresholds, and sandboxed tool execution.</p><span class="go">Explore</span></a></div>
   </div>
 </section>
 
 <!-- ============ GUARDRAILS ============ -->
-<section class="sec alt" id="guardrails">
-  <div class="wrap two">
-    <div class="reveal">
-      <span class="eyebrow">Guardrails &amp; hallucination prevention</span>
-      <h2>Answers must <em>earn their way out.</em></h2>
-      <p class="lead">Before returning an answer, the pipeline scores the generated output against retrieved source fragments. Answers below a configurable confidence threshold are suppressed or routed to human supervisors.</p>
-      <p>Automated code execution, API tool calls, and database queries run inside ephemeral, non-root micro-VMs or isolated containers with zero write access to the host.</p>
-      <div class="slider-box">
-        <label for="thr">Confidence threshold <output id="thr-out">70%</output></label>
-        <input type="range" id="thr" min="30" max="95" value="70">
-        <small>Illustrative demo — drag to see which answers are released.</small>
-      </div>
-    </div>
-    <div class="verify reveal" id="verify">
-      <div class="pipe"><span>Query</span><i></i><span>Retrieve</span><i></i><span>Generate</span><i></i><span class="hot">Score vs. sources</span></div>
-      <ul class="answers">
-        <li data-s="92"><div class="ans"><b>"Refund window is 30 days."</b><small>Policy §4.2 · p.18</small></div><div class="meter"><i style="--w:92%"></i></div><em>92%</em><span class="verdict"></span></li>
-        <li data-s="74"><div class="ans"><b>"Applies to all enrolment types."</b><small>Handbook §2.1 · p.6</small></div><div class="meter"><i style="--w:74%"></i></div><em>74%</em><span class="verdict"></span></li>
-        <li data-s="51"><div class="ans"><b>"Exceptions are decided by the Dean."</b><small>No matching source</small></div><div class="meter"><i style="--w:51%"></i></div><em>51%</em><span class="verdict"></span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 <!-- ============ SECURITY ============ -->
-<section class="sec" id="security">
+<section class="sec alt" id="security">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Trust, security &amp; compliance</span>
@@ -237,21 +170,8 @@
       <div><b>TLS <span data-count="1.3" data-dec="1">1.3</span></b><small>in transit, internal and ingress</small></div>
       <div><b><span data-count="30">30</span>-day</b><small>proof of concept in your staging</small></div>
     </div>
-    <div class="cols2">
-      <article class="card spot reveal"><h4>FERPA</h4><small>Family Educational Rights and Privacy Act</small><p>Student records, chat submissions, grades, and identities never leave the institution's private tenancy. Zero model training on student inputs.</p></article>
-      <article class="card spot reveal"><h4>HIPAA</h4><small>Health Insurance Portability and Accountability Act</small><p>Configurable for Business Associate Agreement (BAA) alignment, or 100% self-hosted on-prem where a third-party BAA is unnecessary because data never touches external infrastructure.</p></article>
-      <article class="card spot reveal"><h4>GDPR &amp; sovereign data</h4><small>Data residency &amp; right to erasure</small><p>Runs inside local data centers without foreign data transit. Localized database pruning on request.</p></article>
-      <article class="card spot reveal"><h4>SOC 2 Type II / ISO 27001</h4><small>Alignment</small><p>Granular role-based controls, immutable audit logging, and automated vulnerability scanning make the platform auditable by third-party assurance teams.</p></article>
-    </div>
-    <details class="deep reveal">
-      <summary>Security engineering specifications <span>for CISOs &amp; SecOps</span></summary>
-      <div class="deep-grid">
-        <div><b>Zero egress architecture</b><p>No licensing callbacks over the public internet. Licensing is validated with cryptographically signed offline certificates.</p></div>
-        <div><b>Encryption</b><p>AES-256 across vector stores, relational databases and volume mounts with AWS KMS, Azure Key Vault or HashiCorp Vault. Mandatory TLS 1.3 for all service-to-service traffic and user ingress.</p></div>
-        <div><b>Testing &amp; scanning</b><p>Semi-annual third-party gray-box penetration testing. Base container images continuously scanned for CVEs (Debian and Alpine minimal).</p></div>
-        <div><b>Memory &amp; in-flight isolation</b><p>RAG contexts and model caches are ephemeral. After an agentic run, transient context is flushed from GPU VRAM to prevent cross-tenant or cross-session residue.</p></div>
-      </div>
-    </details>
+    
+    <div class="cta-row reveal"><a href="security.html" class="btn btn-primary magnetic">Trust &amp; compliance details <span class="arr">→</span></a></div>
   </div>
 </section>
 
@@ -278,42 +198,19 @@
     <div class="sec-head reveal">
       <span class="eyebrow">Deployment &amp; proof of concept</span>
       <h2>Thirty days, inside <em>your own staging.</em></h2>
+      <p class="lead">A structured four-week proof of concept: infrastructure, knowledge ingestion, pilot agents, and a security and executive review.</p>
     </div>
-    <ol class="timeline" id="timeline">
-      <li class="reveal"><span class="wk">Week 1</span><h4>Infrastructure &amp; container spin-up</h4><p>Deploy Helm charts on private Kubernetes or Docker Compose on local GPU nodes.</p></li>
-      <li class="reveal"><span class="wk">Week 2</span><h4>Directory &amp; knowledge ingestion</h4><p>Connect SAML/SSO and index initial policy or curriculum documents.</p></li>
-      <li class="reveal"><span class="wk">Week 3</span><h4>Agent configuration &amp; departmental testing</h4><p>Configure custom agents for pilot groups (e.g. 200 faculty or legal analysts).</p></li>
-      <li class="reveal"><span class="wk">Week 4</span><h4>Security audit &amp; executive review</h4><p>Evaluate latency, query accuracy, data isolation integrity and compute utilization.</p></li>
-    </ol>
-    <div class="cols3 prereq">
-      <article class="card spot reveal"><small>Hardware (on-prem)</small><p>Minimum 2× NVIDIA A10G / L40S / A100 (40/80GB) for 70B-parameter local inference. Or any existing CPU/RAM cluster if pointing to private cloud endpoints.</p></article>
-      <article class="card spot reveal"><small>Container runtimes</small><p>Docker Engine 24.0+ with NVIDIA Container Toolkit, or Kubernetes 1.26+.</p></article>
-      <article class="card spot reveal"><small>Networking</small><p>Local access for user endpoints. Outbound internet is optional, required only for remote API model providers.</p></article>
-    </div>
+    <div class="cta-row reveal"><a href="deployment.html" class="btn btn-primary magnetic">See the 30-day plan <span class="arr">→</span></a></div>
   </div>
 </section>
 
 <!-- ============ CONTACT ============ -->
 <section class="sec alt contact" id="contact">
-  <div class="wrap two">
-    <div class="reveal">
-      <span class="eyebrow">Architectural evaluation</span>
-      <h2>Evaluate ePrivacy-AI <em>inside your own perimeter.</em></h2>
-      <p class="lead">Speak directly with a solutions architect. We will evaluate your hardware specifications, compliance constraints, and integration requirements.</p>
-      <p class="assure">🔒 We sign mutual NDAs before any deep architectural review. Your technical inquiries are answered by infrastructure engineers, not outsourced sales qualification teams.</p>
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div><h2>Evaluate ePrivacy-AI inside your own perimeter.</h2><p>Speak directly with a solutions architect. We sign mutual NDAs before any deep architectural review.</p><div class="cta-row" style="margin-bottom:0"><a href="contact.html" class="btn btn-primary magnetic">Schedule an Architectural Review <span class="arr">→</span></a></div></div>
+      <div class="others"><small>Explore</small><a href="solutions.html"><span>All solutions</span><small>View</small></a><a href="pricing.html"><span>Pricing &amp; ROI calculator</span><small>View</small></a></div>
     </div>
-    <form class="form reveal" id="form" novalidate>
-      <div class="f2"><label>Full name &amp; institutional title<input name="name" required autocomplete="name"></label>
-      <label>Organization / university / health system<input name="org" required autocomplete="organization"></label></div>
-      <label>Preferred deployment target
-        <select name="target"><option>Private Cloud (AWS / Azure / GCP VPC)</option><option>On-Premises Bare Metal / Private Data Center</option><option>Air-Gapped / Classified Network</option></select></label>
-      <label>Primary operational focus
-        <select name="focus"><option>Higher Education (Instruction &amp; Operations)</option><option>Healthcare / Clinical Operations</option><option>Enterprise IT / Helpdesk / Legal</option><option>Scientific Research &amp; HPC</option></select></label>
-      <label>Target timeline for implementation<input name="timeline" placeholder="e.g. Pilot next semester"></label>
-      <label>Message / infrastructure details<textarea name="msg" rows="4"></textarea></label>
-      <button class="btn btn-primary magnetic" type="submit">Request Architectural Review <span class="arr">→</span></button>
-      <p class="ok" id="form-ok" hidden>Thank you. A solutions architect will reply to schedule your review.</p>
-    </form>
   </div>
 </section>
 </main>
@@ -322,9 +219,8 @@
   <div class="wrap foot-in">
     <div><b class="brand-name">ePrivacy<b>-AI</b></b><p>Sovereign enterprise agent platform and self-hosted AI infrastructure.</p></div>
     <div><h6>Solutions</h6><a href="solutions-enterprise.html">Enterprise &amp; Business</a><a href="solutions-legal-compliance.html">Legal &amp; Compliance</a><a href="solutions-banking-finance.html">Banking &amp; Finance</a><a href="solutions-ip-research.html">IP &amp; Research</a><a href="solutions-healthcare.html">Healthcare &amp; Biomedical</a><a href="solutions-public-sector-defence.html">Public Sector &amp; Defence</a><a href="solutions-education.html">Education &amp; eLearning</a></div>
-    <div><h6>Product</h6><a href="#platform">Architecture</a><a href="#models">Supported models</a><a href="#guardrails">Guardrails</a></div>
-    <div><h6>Governance</h6><a href="#security">Security &amp; compliance</a><a href="#security">Zero-data-retention</a><a href="pricing.html">Licensing</a></div>
-    <div><h6>Get started</h6><a href="#deployment">30-day POC</a><a href="#contact">Architectural review</a><a href="#contact">On-prem evaluation license</a></div>
+    <div><h6>Platform</h6><a href="platform-architecture.html">Architecture &amp; Sovereignty</a><a href="platform-models.html">Model Agnosticism &amp; Routing</a><a href="platform-guardrails.html">Knowledge Base &amp; Guardrails</a></div>
+    <div><h6>Company</h6><a href="security.html">Trust &amp; compliance</a><a href="pricing.html">Pricing</a><a href="deployment.html">Deployment</a><a href="contact.html">Contact</a></div>
   </div>
   <div class="wrap foot-b"><span>© <span id="yr">2026</span> ePrivacy-AI. All rights reserved.</span><span>Sovereign AI. Your data, your perimeter.</span></div>
 </footer>

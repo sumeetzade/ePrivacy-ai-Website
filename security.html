@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trust &amp; Compliance · ePrivacy-AI</title>
+<meta name="description" content="Compliance built in: FERPA, HIPAA, GDPR and SOC 2 alignment with customer-held keys and zero telemetry.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="assets/logo.png">
+<link rel="preload" href="assets/fonts/Sora-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="progress" aria-hidden="true"><i></i></div>
+<div class="cursor-glow" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand" aria-label="ePrivacy-AI home">
+      <svg viewBox="0 0 70 78" width="34" height="38" aria-hidden="true">
+        <rect x="2" y="26" width="66" height="50" rx="9" fill="#f5b732"/>
+        <text x="27" y="64" text-anchor="middle" font-family="Sora,sans-serif" font-weight="800" font-size="40" fill="#200a79">ai</text>
+        <rect x="46" y="38" width="16" height="13" rx="2.5" fill="#200a79"/>
+        <path d="M49.5 38v-4a4.5 4.5 0 0 1 9 0v4" fill="none" stroke="#200a79" stroke-width="3"/>
+        <text x="35" y="19" text-anchor="middle" font-family="Sora,sans-serif" font-weight="600" font-size="16" textLength="64" lengthAdjust="spacingAndGlyphs" fill="#200a79">ePrivacy</text>
+      </svg>
+      <span class="brand-name">ePrivacy<b>-AI</b></span>
+    </a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <div class="dd">
+        <a href="solutions.html" class="dd-t">Solutions<span>▾</span></a>
+        <div class="dd-m"><a href="solutions-enterprise.html">Enterprise &amp; Business</a><a href="solutions-legal-compliance.html">Legal &amp; Compliance</a><a href="solutions-banking-finance.html">Banking &amp; Finance</a><a href="solutions-ip-research.html">IP &amp; Research</a><a href="solutions-healthcare.html">Healthcare &amp; Biomedical</a><a href="solutions-public-sector-defence.html">Public Sector &amp; Defence</a><a href="solutions-education.html">Education &amp; eLearning</a></div>
+      </div>
+      <div class="dd">
+        <a href="platform-architecture.html" class="dd-t">Platform<span>▾</span></a>
+        <div class="dd-m"><a href="platform-architecture.html">Architecture &amp; Sovereignty</a><a href="platform-models.html">Model Agnosticism &amp; Routing</a><a href="platform-guardrails.html">Knowledge Base &amp; Guardrails</a></div>
+      </div>
+      <a href="security.html" aria-current="page">Trust &amp; Compliance</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="deployment.html">Deployment</a>
+      <a href="contact.html" class="btn btn-sm btn-primary menu-cta">Schedule an Architectural Review</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+<main id="top">
+<div class="wrap crumb-bar"><div class="crumbs"><a href="index.html">Home</a><span>/</span><span>Trust &amp; Compliance</span></div></div><section class="sec" id="security">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Trust, security &amp; compliance</span>
+      <h1 class="h2like">Compliance is built in, <em>not added on.</em></h1>
+      <p class="lead">We build software for organizations where a data breach is catastrophic. You retain sole custody of cryptographic keys, underlying storage, and server hardware.</p>
+    </div>
+    <div class="stats reveal">
+      <div><b><span data-count="0">0</span></b><small>bytes of telemetry or egress</small></div>
+      <div><b>AES-<span data-count="256">256</span></b><small>at rest, customer-managed KMS keys</small></div>
+      <div><b>TLS <span data-count="1.3" data-dec="1">1.3</span></b><small>in transit, internal and ingress</small></div>
+      <div><b><span data-count="30">30</span>-day</b><small>proof of concept in your staging</small></div>
+    </div>
+    <div class="cols2">
+      <article class="card spot reveal"><h4>FERPA</h4><small>Family Educational Rights and Privacy Act</small><p>Student records, chat submissions, grades, and identities never leave the institution's private tenancy. Zero model training on student inputs.</p></article>
+      <article class="card spot reveal"><h4>HIPAA</h4><small>Health Insurance Portability and Accountability Act</small><p>Configurable for Business Associate Agreement (BAA) alignment, or 100% self-hosted on-prem where a third-party BAA is unnecessary because data never touches external infrastructure.</p></article>
+      <article class="card spot reveal"><h4>GDPR &amp; sovereign data</h4><small>Data residency &amp; right to erasure</small><p>Runs inside local data centers without foreign data transit. Localized database pruning on request.</p></article>
+      <article class="card spot reveal"><h4>SOC 2 Type II / ISO 27001</h4><small>Alignment</small><p>Granular role-based controls, immutable audit logging, and automated vulnerability scanning make the platform auditable by third-party assurance teams.</p></article>
+    </div>
+    <details class="deep reveal">
+      <summary>Security engineering specifications <span>for CISOs &amp; SecOps</span></summary>
+      <div class="deep-grid">
+        <div><b>Zero egress architecture</b><p>No licensing callbacks over the public internet. Licensing is validated with cryptographically signed offline certificates.</p></div>
+        <div><b>Encryption</b><p>AES-256 across vector stores, relational databases and volume mounts with AWS KMS, Azure Key Vault or HashiCorp Vault. Mandatory TLS 1.3 for all service-to-service traffic and user ingress.</p></div>
+        <div><b>Testing &amp; scanning</b><p>Semi-annual third-party gray-box penetration testing. Base container images continuously scanned for CVEs (Debian and Alpine minimal).</p></div>
+        <div><b>Memory &amp; in-flight isolation</b><p>RAG contexts and model caches are ephemeral. After an agentic run, transient context is flushed from GPU VRAM to prevent cross-tenant or cross-session residue.</p></div>
+      </div>
+    </details>
+  </div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div><b class="brand-name">ePrivacy<b>-AI</b></b><p>Sovereign enterprise agent platform and self-hosted AI infrastructure.</p></div>
+    <div><h6>Solutions</h6><a href="solutions-enterprise.html">Enterprise &amp; Business</a><a href="solutions-legal-compliance.html">Legal &amp; Compliance</a><a href="solutions-banking-finance.html">Banking &amp; Finance</a><a href="solutions-ip-research.html">IP &amp; Research</a><a href="solutions-healthcare.html">Healthcare &amp; Biomedical</a><a href="solutions-public-sector-defence.html">Public Sector &amp; Defence</a><a href="solutions-education.html">Education &amp; eLearning</a></div>
+    <div><h6>Platform</h6><a href="platform-architecture.html">Architecture &amp; Sovereignty</a><a href="platform-models.html">Model Agnosticism &amp; Routing</a><a href="platform-guardrails.html">Knowledge Base &amp; Guardrails</a></div>
+    <div><h6>Company</h6><a href="security.html">Trust &amp; compliance</a><a href="pricing.html">Pricing</a><a href="deployment.html">Deployment</a><a href="contact.html">Contact</a></div>
+  </div>
+  <div class="wrap foot-b"><span>© <span id="yr">2026</span> ePrivacy-AI. All rights reserved.</span><span>Sovereign AI. Your data, your perimeter.</span></div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
