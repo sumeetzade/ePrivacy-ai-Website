@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ePrivacy-AI — Enterprise Generative AI That Never Leaves Your Firewall</title>
+<meta name="description" content="Sovereign, self-hosted AI agent platform. Deploy autonomous agents, copilots and private knowledge retrieval inside your own perimeter with zero data egress.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="progress" aria-hidden="true"><i></i></div>
+<div class="cursor-glow" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand" aria-label="ePrivacy-AI home">
+      <svg viewBox="0 0 70 78" width="34" height="38" aria-hidden="true">
+        <rect x="2" y="26" width="66" height="50" rx="9" fill="#f5b732"/>
+        <text x="27" y="64" text-anchor="middle" font-family="Sora,sans-serif" font-weight="800" font-size="40" fill="#200a79">ai</text>
+        <rect x="46" y="38" width="16" height="13" rx="2.5" fill="#200a79"/>
+        <path d="M49.5 38v-4a4.5 4.5 0 0 1 9 0v4" fill="none" stroke="#200a79" stroke-width="3"/>
+        <text x="35" y="19" text-anchor="middle" font-family="Sora,sans-serif" font-weight="600" font-size="16" textLength="64" lengthAdjust="spacingAndGlyphs" fill="#200a79">ePrivacy</text>
+      </svg>
+      <span class="brand-name">ePrivacy<b>-AI</b></span>
+    </a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <div class="dd">
+        <a href="#solutions" class="dd-t">Solutions<span>▾</span></a>
+        <div class="dd-m">
+          <a href="#solutions" data-tab="edu">Higher Education &amp; Research</a>
+          <a href="#solutions" data-tab="health">Healthcare &amp; Life Sciences</a>
+          <a href="#solutions" data-tab="legal">Financial Services &amp; Legal</a>
+          <a href="#solutions" data-tab="gov">Public Sector &amp; Defense</a>
+        </div>
+      </div>
+      <div class="dd">
+        <a href="#platform" class="dd-t">Platform<span>▾</span></a>
+        <div class="dd-m">
+          <a href="#platform">Architecture &amp; Sovereignty</a>
+          <a href="#models">Model Agnosticism &amp; Routing</a>
+          <a href="#guardrails">Knowledge Base &amp; Guardrails</a>
+        </div>
+      </div>
+      <a href="#security">Trust &amp; Compliance</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#deployment">Deployment</a>
+      <a href="#contact" class="btn btn-sm btn-primary menu-cta">Schedule an Architectural Review</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="top">
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <span class="eyebrow"><i class="dot"></i>Enterprise Sovereign AI Platform</span>
+      <h1 id="h1" aria-label="Enterprise Generative AI That Never Leaves Your Firewall.">Enterprise Generative AI That <em>Never Leaves Your Firewall.</em></h1>
+      <p class="lead reveal">Deploy autonomous agents, institutional copilots, and private knowledge retrieval on your own hardware or dedicated cloud tenancy. Complete model freedom with zero data telemetry.</p>
+      <div class="cta-row reveal">
+        <a href="#contact" class="btn btn-primary magnetic">Schedule Architectural Walkthrough <span class="arr">→</span></a>
+        <a href="#security" class="btn btn-ghost magnetic">Download Security &amp; Compliance Whitepaper</a>
+      </div>
+      <p class="trusted reveal">Trusted across regulated research institutions, university systems, and healthcare networks.</p>
+    </div>
+    <div class="hero-vis">
+      <canvas id="hero-canvas" aria-label="Animated diagram: AI agents operating inside a protected perimeter while outbound data attempts are blocked" role="img"></canvas>
+    </div>
+  </div>
+  <a href="#problem" class="scroll-hint" aria-label="Scroll"><span></span></a>
+</section>
+
+<div class="marquee" aria-label="Standards and capabilities">
+  <div class="marquee-track">
+    <span>SOC 2 Type II Compatible</span><span>HIPAA &amp; FERPA Aligned</span><span>Native LTI 1.3</span><span>Air-Gapped Ready</span><span>100% Data Sovereignty</span><span>Zero Telemetry</span>
+    <span>SOC 2 Type II Compatible</span><span>HIPAA &amp; FERPA Aligned</span><span>Native LTI 1.3</span><span>Air-Gapped Ready</span><span>100% Data Sovereignty</span><span>Zero Telemetry</span>
+  </div>
+</div>
+
+<!-- ============ PROBLEM ============ -->
+<section class="sec" id="problem">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The core problem</span>
+      <h2>Public AI creates productivity. <em>It also creates liability.</em></h2>
+      <p class="lead">When employees, researchers, or faculty use consumer cloud AI tools, sensitive institutional records, patient inquiries, unpublished intellectual property, and proprietary codebase data are uploaded to external vendor servers. Traditional cloud platforms retain prompts, train on your inputs, or expose you to third-party data breaches.</p>
+    </div>
+
+    <div class="versus reveal">
+      <figure class="vs-card bad">
+        <figcaption><b>Public cloud AI</b><span>Your data leaves the building</span></figcaption>
+        <svg viewBox="0 0 440 220" role="img" aria-label="Data flowing from your records out to a vendor cloud">
+          <rect x="16" y="70" width="110" height="80" rx="12" class="box"/><text x="71" y="116" class="t" text-anchor="middle">Your records</text><text x="71" y="134" class="t2" text-anchor="middle">PHI · IP · grades</text>
+          <path id="leak" d="M126 110 C 200 110, 230 60, 318 70" class="wire bad-wire"/>
+          <path id="leak2" d="M126 120 C 200 130, 240 150, 318 140" class="wire bad-wire"/>
+          <g class="cloud"><path d="M330 120a22 22 0 0 1 4-43 28 28 0 0 1 54-4 24 24 0 0 1 8 47z" /></g>
+          <text x="368" y="112" class="t" text-anchor="middle">Vendor</text>
+          <text x="320" y="170" class="t2 warn" text-anchor="middle">retained · trained on · exposed</text>
+          <circle r="4" class="pk bad-pk"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#leak"/></animateMotion></circle>
+          <circle r="4" class="pk bad-pk"><animateMotion dur="2.4s" begin="0.8s" repeatCount="indefinite"><mpath href="#leak"/></animateMotion></circle>
+          <circle r="4" class="pk bad-pk"><animateMotion dur="2.9s" begin="0.3s" repeatCount="indefinite"><mpath href="#leak2"/></animateMotion></circle>
+          <circle r="4" class="pk bad-pk"><animateMotion dur="2.9s" begin="1.6s" repeatCount="indefinite"><mpath href="#leak2"/></animateMotion></circle>
+        </svg>
+      </figure>
+      <figure class="vs-card good">
+        <figcaption><b>ePrivacy-AI</b><span>Everything stays inside</span></figcaption>
+        <svg viewBox="0 0 440 220" role="img" aria-label="Data circulating inside a protected perimeter; the route to the vendor cloud is blocked">
+          <rect x="16" y="24" width="270" height="172" rx="18" class="perimeter"/>
+          <text x="30" y="46" class="t2 amber">YOUR PERIMETER</text>
+          <rect x="44" y="78" width="96" height="70" rx="10" class="box"/><text x="92" y="118" class="t" text-anchor="middle">Records</text>
+          <rect x="176" y="78" width="92" height="70" rx="10" class="box acc"/><text x="222" y="112" class="t" text-anchor="middle">Agents</text><text x="222" y="130" class="t2" text-anchor="middle">+ models</text>
+          <path id="loop" d="M140 100 H176 M176 126 H140" class="wire good-wire"/>
+          <path id="lp1" d="M140 100 H176" fill="none"/><path id="lp2" d="M176 126 H140" fill="none"/>
+          <circle r="4" class="pk good-pk"><animateMotion dur="1.3s" repeatCount="indefinite"><mpath href="#lp1"/></animateMotion></circle>
+          <circle r="4" class="pk good-pk"><animateMotion dur="1.3s" begin="0.65s" repeatCount="indefinite"><mpath href="#lp2"/></animateMotion></circle>
+          <path d="M286 110 H330" class="wire blocked"/>
+          <g class="xmark"><path d="M300 98l16 24M316 98l-16 24"/></g>
+          <g class="cloud dim"><path d="M350 120a22 22 0 0 1 4-43 28 28 0 0 1 54-4 24 24 0 0 1 8 47z" /></g>
+          <text x="388" y="112" class="t3" text-anchor="middle">Vendor</text>
+          <text x="388" y="170" class="t2 ok" text-anchor="middle">zero egress</text>
+        </svg>
+      </figure>
+    </div>
+
+    <h3 class="sub reveal">The ePrivacy-AI difference</h3>
+    <div class="cols3">
+      <article class="card spot reveal"><span class="ico">⬡</span><h4>100% Boundary Containment</h4><p>Compute, embeddings, and chat histories remain strictly inside your private cloud (AWS/Azure/GCP VPC) or on-prem bare metal.</p></article>
+      <article class="card spot reveal"><span class="ico">⇄</span><h4>Total Model Independence</h4><p>Switch between self-hosted open-weights (Llama, Mistral, DeepSeek) and private commercial endpoints (OpenAI, Anthropic via private tenant) with zero code rewrites.</p></article>
+      <article class="card spot reveal"><span class="ico">☰</span><h4>Verifiable Audit Trails</h4><p>Every prompt, retrieval citation, and agent decision is logged to your internal SIEM system without third-party tracking.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOLUTIONS ============ -->
+<section class="sec alt" id="solutions">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Solutions · select your role</span>
+      <h2>Built for the institutions <em>that can't afford a leak.</em></h2>
+    </div>
+    <div class="tabs reveal" role="tablist" aria-label="Industry solutions">
+      <button role="tab" aria-selected="true" data-tab="edu">Higher Education &amp; Research</button>
+      <button role="tab" aria-selected="false" data-tab="health">Healthcare &amp; Biomedical</button>
+      <button role="tab" aria-selected="false" data-tab="legal">Legal, Banking &amp; Enterprise</button>
+      <button role="tab" aria-selected="false" data-tab="gov">Public Sector &amp; Defense</button>
+      <i class="tab-ink"></i>
+    </div>
+
+    <div class="panels reveal">
+      <div class="panel on" data-panel="edu">
+        <div class="panel-copy">
+          <h3>FERPA-Compliant Course Mentors &amp; Research Compute</h3>
+          <p>Provide students with 24/7 Socratic tutoring grounded in specific syllabi, without exposing student records. Give research labs access to high-parameter LLMs running on campus clusters without exporting grant data.</p>
+          <ul class="chips"><li>LMS integration · Canvas, Moodle, Blackboard (LTI 1.3)</li><li>Automated syllabus ingestion</li><li>Zero external telemetry</li></ul>
+          <div class="flow3">
+            <div><small>Problem</small>Generic AI writes students' essays and returns inaccurate textbook facts.</div>
+            <div><small>Function</small>Agents guide step-by-step with Socratic prompts, pulling facts only from verified course material.</div>
+            <div><small>Outcome</small>Deeper comprehension, zero essay ghostwriting, complete LMS integration.</div>
+          </div>
+        </div>
+        <div class="panel-vis"><svg viewBox="0 0 300 260" aria-hidden="true"><circle class="rg" cx="150" cy="130" r="100"/><circle class="rg r2" cx="150" cy="130" r="64"/><g class="orbit"><circle cx="150" cy="30" r="9" class="n1"/><circle cx="236" cy="180" r="9" class="n2"/><circle cx="64" cy="180" r="9" class="n3"/></g><text x="150" y="126" text-anchor="middle" class="big">LTI</text><text x="150" y="148" text-anchor="middle" class="sm">1.3 · Canvas · Moodle</text></svg></div>
+      </div>
+      <div class="panel" data-panel="health">
+        <div class="panel-copy">
+          <h3>HIPAA-Aligned Clinical Assistance &amp; Operational Workflows</h3>
+          <p>Automate administrative paperwork, intake routing, and medical literature synthesis within isolated VPC boundaries where protected health information (PHI) never touches public networks.</p>
+          <ul class="chips"><li>BAA-ready architecture</li><li>Air-gapped deployment option</li><li>Deterministic medical citation retrieval</li></ul>
+          <div class="flow3">
+            <div><small>Use</small>Clinical trial protocol synthesis and cross-study comparison.</div>
+            <div><small>Use</small>Internal SOP, formulary and drug-interaction reference copilots.</div>
+            <div><small>Use</small>Extraction of unstructured discharge notes into structured formats.</div>
+          </div>
+        </div>
+        <div class="panel-vis"><svg viewBox="0 0 300 260" aria-hidden="true"><circle class="rg" cx="150" cy="130" r="100"/><path class="ecg" d="M20 130 H100 L115 90 L135 170 L150 110 L162 130 H280"/><text x="150" y="215" text-anchor="middle" class="sm">PHI never touches public networks</text></svg></div>
+      </div>
+      <div class="panel" data-panel="legal">
+        <div class="panel-copy">
+          <h3>High-Precision Contract Analysis &amp; Internal Helpdesks</h3>
+          <p>Deploy customer-facing or internal-facing agents with strict guardrails that prevent improvisation, cite verifiable internal documents, and preserve full attorney-client or banking confidentiality.</p>
+          <ul class="chips"><li>Hybrid deterministic workflow engine</li><li>Enterprise RBAC</li><li>Complete code &amp; document sandbox</li></ul>
+          <div class="flow3">
+            <div><small>Use</small>Multi-hundred-page contract cross-referencing and indemnification audits.</div>
+            <div><small>Use</small>Due diligence document indexing across structured data rooms.</div>
+            <div><small>Use</small>10-K, annual report and MCA filing cross-comparison.</div>
+          </div>
+        </div>
+        <div class="panel-vis"><svg viewBox="0 0 300 260" aria-hidden="true"><rect class="doc" x="70" y="40" width="130" height="170" rx="10"/><g class="lines"><path d="M90 76h90M90 96h70M90 116h90M90 136h60M90 156h80"/></g><rect class="hl" x="84" y="104" width="104" height="18" rx="4"/><text x="150" y="238" text-anchor="middle" class="sm">cited · sandboxed · wiped on close</text></svg></div>
+      </div>
+      <div class="panel" data-panel="gov">
+        <div class="panel-copy">
+          <h3>Air-Gapped Services for Public Sector &amp; Defense</h3>
+          <p>Citizen services, FOIA ingestion and inter-departmental knowledge bases that run on-premises with zero internet dependence.</p>
+          <ul class="chips"><li>Air-gapped on-premise</li><li>Offline signed licensing</li><li>Source code escrow</li></ul>
+          <div class="flow3">
+            <div><small>Use</small>Citizen services assistants grounded in published policy.</div>
+            <div><small>Use</small>FOIA document ingestion and triage.</div>
+            <div><small>Use</small>Shared knowledge bases across departments, with role-based access.</div>
+          </div>
+        </div>
+        <div class="panel-vis"><svg viewBox="0 0 300 260" aria-hidden="true"><circle class="rg" cx="150" cy="130" r="100"/><g class="nowifi"><path d="M90 110a90 90 0 0 1 120 0M110 134a60 60 0 0 1 80 0M132 158a28 28 0 0 1 36 0"/><circle cx="150" cy="178" r="5"/><path class="slash" d="M96 80L204 190"/></g><text x="150" y="228" text-anchor="middle" class="sm">zero internet dependence</text></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLATFORM ============ -->
+<section class="sec" id="platform">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Technical blueprint · for engineering &amp; security teams</span>
+      <h2>Engineered for CISOs and <em>infrastructure architects.</em></h2>
+      <p class="lead">Think of ePrivacy-AI as a modular operating system. It sits between your internal users and your chosen computing infrastructure. If an open-source model becomes the best tomorrow, you plug it in without changing the software your team uses every day.</p>
+    </div>
+
+    <div class="arch reveal" id="arch">
+      <div class="perim-label">YOUR PERIMETER · private cloud VPC / bare metal / air-gapped</div>
+      <div class="layer l1"><h5>Enterprise control plane</h5>
+        <div class="nodes">
+          <button class="node on" data-k="idp">Identity &amp; Access<small>SAML 2.0 / OIDC</small></button>
+          <button class="node" data-k="audit">Audit Logs &amp; Token Quotas<small>SIEM-ready</small></button>
+        </div></div>
+      <div class="flowcol" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="layer l2"><h5>ePrivacy-AI agent runtime</h5>
+        <div class="nodes">
+          <button class="node" data-k="parse">Context Extraction<small>Docling / table parser</small></button>
+          <button class="node" data-k="agents">Agent Blueprint Hub<small>Stateful ReAct / DAG</small></button>
+          <button class="node" data-k="guard">Prompt Guard<small>Sanitizer</small></button>
+        </div></div>
+      <div class="flowcol" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="layer l3"><h5>Infrastructure / data plane</h5>
+        <div class="nodes">
+          <button class="node" data-k="vec">Vector &amp; Metadata DB<small>pgvector / Qdrant</small></button>
+          <button class="node" data-k="inf">Private Inference<small>vLLM / TensorRT-LLM</small></button>
+        </div></div>
+      <div class="egress"><span>🌐 Public internet</span><b>✕ no egress route required</b></div>
+    </div>
+    <aside class="detail reveal" id="detail" aria-live="polite"></aside>
+
+    <h3 class="sub reveal" id="models">Technical specifications</h3>
+    <div class="spec reveal">
+      <div class="spec-row"><b>Inference Engines</b><p>Direct integration with vLLM (PagedAttention), NVIDIA Triton, Ollama, or private cloud endpoints (AWS Bedrock, Azure OpenAI).</p></div>
+      <div class="spec-row"><b>Model Compatibility</b><p>Llama 3/3.3, Mistral/Mixtral, DeepSeek R1/V3, Qwen, Falcon, or any Hugging Face standard weight format.</p></div>
+      <div class="spec-row"><b>Vector Search &amp; RAG</b><p>Native Qdrant, pgvector, or Milvus integrations; hybrid dense/sparse search (BM25 + BGE/Cohere embeddings).</p></div>
+      <div class="spec-row"><b>Access Control (RBAC)</b><p>SAML 2.0, OAuth2/OIDC, Microsoft Entra ID, LDAP. Attribute-based document filtering at the vector retrieval layer.</p></div>
+      <div class="spec-row"><b>Data Encryption</b><p>AES-256 at rest; TLS 1.3 for the internal service mesh (mTLS via Istio or Linkerd).</p></div>
+      <div class="spec-row"><b>Auditing &amp; SIEM</b><p>JSON structured logging, Prometheus metrics, OpenTelemetry tracing, and syslog integration for Splunk/Datadog.</p></div>
+    </div>
+
+    <div class="cols3 pillars">
+      <article class="card spot reveal"><span class="ico">⇆</span><h4>Model Agnosticism</h4><p>Abstraction layer for local open-weights (Llama 3, Mistral Large, Qwen, DeepSeek) and private endpoints (Azure OpenAI, AWS Bedrock). Route departments to different models by policy.</p></article>
+      <article class="card spot reveal"><span class="ico">◎</span><h4>Deterministic RAG Engine</h4><p>Strict context boundaries so answers come only from authorized internal files, with line-level citations. Hybrid HNSW + BM25 with cross-encoder re-ranking.</p></article>
+      <article class="card spot reveal"><span class="ico">⚙</span><h4>Agentic Execution Engine</h4><p>Stateful, multi-step orchestration with code interpretation, SQL querying, and multi-document synthesis.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GUARDRAILS ============ -->
+<section class="sec alt" id="guardrails">
+  <div class="wrap two">
+    <div class="reveal">
+      <span class="eyebrow">Guardrails &amp; hallucination prevention</span>
+      <h2>Answers must <em>earn their way out.</em></h2>
+      <p class="lead">Before returning an answer, the pipeline scores the generated output against retrieved source fragments. Answers below a configurable confidence threshold are suppressed or routed to human supervisors.</p>
+      <p>Automated code execution, API tool calls, and database queries run inside ephemeral, non-root micro-VMs or isolated containers with zero write access to the host.</p>
+      <div class="slider-box">
+        <label for="thr">Confidence threshold <output id="thr-out">70%</output></label>
+        <input type="range" id="thr" min="30" max="95" value="70">
+        <small>Illustrative demo — drag to see which answers are released.</small>
+      </div>
+    </div>
+    <div class="verify reveal" id="verify">
+      <div class="pipe"><span>Query</span><i></i><span>Retrieve</span><i></i><span>Generate</span><i></i><span class="hot">Score vs. sources</span></div>
+      <ul class="answers">
+        <li data-s="92"><div class="ans"><b>"Refund window is 30 days."</b><small>Policy §4.2 · p.18</small></div><div class="meter"><i style="--w:92%"></i></div><em>92%</em><span class="verdict"></span></li>
+        <li data-s="74"><div class="ans"><b>"Applies to all enrolment types."</b><small>Handbook §2.1 · p.6</small></div><div class="meter"><i style="--w:74%"></i></div><em>74%</em><span class="verdict"></span></li>
+        <li data-s="51"><div class="ans"><b>"Exceptions are decided by the Dean."</b><small>No matching source</small></div><div class="meter"><i style="--w:51%"></i></div><em>51%</em><span class="verdict"></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECURITY ============ -->
+<section class="sec" id="security">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Trust, security &amp; compliance</span>
+      <h2>Compliance is built in, <em>not added on.</em></h2>
+      <p class="lead">We build software for organizations where a data breach is catastrophic. You retain sole custody of cryptographic keys, underlying storage, and server hardware.</p>
+    </div>
+    <div class="stats reveal">
+      <div><b><span data-count="0">0</span></b><small>bytes of telemetry or egress</small></div>
+      <div><b>AES-<span data-count="256">256</span></b><small>at rest, customer-managed KMS keys</small></div>
+      <div><b>TLS <span data-count="1.3" data-dec="1">1.3</span></b><small>in transit, internal and ingress</small></div>
+      <div><b><span data-count="30">30</span>-day</b><small>proof of concept in your staging</small></div>
+    </div>
+    <div class="cols2">
+      <article class="card spot reveal"><h4>FERPA</h4><small>Family Educational Rights and Privacy Act</small><p>Student records, chat submissions, grades, and identities never leave the institution's private tenancy. Zero model training on student inputs.</p></article>
+      <article class="card spot reveal"><h4>HIPAA</h4><small>Health Insurance Portability and Accountability Act</small><p>Configurable for Business Associate Agreement (BAA) alignment, or 100% self-hosted on-prem where a third-party BAA is unnecessary because data never touches external infrastructure.</p></article>
+      <article class="card spot reveal"><h4>GDPR &amp; sovereign data</h4><small>Data residency &amp; right to erasure</small><p>Runs inside local data centers without foreign data transit. Localized database pruning on request.</p></article>
+      <article class="card spot reveal"><h4>SOC 2 Type II / ISO 27001</h4><small>Alignment</small><p>Granular role-based controls, immutable audit logging, and automated vulnerability scanning make the platform auditable by third-party assurance teams.</p></article>
+    </div>
+    <details class="deep reveal">
+      <summary>Security engineering specifications <span>for CISOs &amp; SecOps</span></summary>
+      <div class="deep-grid">
+        <div><b>Zero egress architecture</b><p>No licensing callbacks over the public internet. Licensing is validated with cryptographically signed offline certificates.</p></div>
+        <div><b>Encryption</b><p>AES-256 across vector stores, relational databases and volume mounts with AWS KMS, Azure Key Vault or HashiCorp Vault. Mandatory TLS 1.3 for all service-to-service traffic and user ingress.</p></div>
+        <div><b>Testing &amp; scanning</b><p>Semi-annual third-party gray-box penetration testing. Base container images continuously scanned for CVEs (Debian and Alpine minimal).</p></div>
+        <div><b>Memory &amp; in-flight isolation</b><p>RAG contexts and model caches are ephemeral. After an agentic run, transient context is flushed from GPU VRAM to prevent cross-tenant or cross-session residue.</p></div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="sec alt" id="pricing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Pricing &amp; commercial models</span>
+      <h2>Predictable, transparent <em>institutional licensing.</em></h2>
+      <p class="lead">No hidden per-message penalties or surprise cloud markup. A flat software licensing fee based on deployed clusters, so you can maximize compute utilization without cost escalation.</p>
+    </div>
+
+    <div class="tiers">
+      <article class="tier spot reveal"><h4>Private Cloud</h4><small>VPC cluster</small><p class="for">For single institutions or mid-size enterprises deploying in their VPC.</p>
+        <ul><li>Flat annual platform license</li><li>Up to 2 clusters</li><li>Standard SSO &amp; RBAC</li><li>Full RAG &amp; Agent Hub</li><li>Bring your own compute</li></ul><a href="#contact" class="btn btn-ghost">Request Quote &amp; Spec</a></article>
+      <article class="tier feat spot reveal"><span class="badge">Most common</span><h4>Enterprise Campus</h4><small>Hybrid / multi-VPC</small><p class="for">For multi-campus universities and health systems at scale.</p>
+        <ul><li>Multi-tenant / multi-department routing</li><li>Unlimited clusters</li><li>Enterprise LTI / CRM</li><li>Dedicated engineering SLA &amp; support</li><li>Bring your own compute</li></ul><a href="#contact" class="btn btn-primary">Schedule Custom Scope</a></article>
+      <article class="tier spot reveal"><h4>Air-Gapped Sovereign</h4><small>Critical infrastructure</small><p class="for">For defense, research labs and intelligence needing zero internet.</p>
+        <ul><li>Completely air-gapped offline license</li><li>Bare-metal or private GPU cloud</li><li>Custom model fine-tuning &amp; hardening</li><li>Source code escrow</li></ul><a href="#contact" class="btn btn-ghost">Contact Gov/Def Team</a></article>
+    </div>
+
+    <div class="costviz reveal">
+      <div class="cv-copy">
+        <h3>How cost scales</h3>
+        <p>Traditional SaaS AI charges per seat or per token, so bills grow with adoption. ePrivacy-AI is a flat annual license on your own compute.</p>
+        <label for="users">Organization adoption <output id="users-out">50%</output></label>
+        <input type="range" id="users" min="5" max="100" value="50">
+        <small>Illustrative curve, not a price quote.</small>
+      </div>
+      <svg viewBox="0 0 480 260" id="cv" role="img" aria-label="Chart: SaaS cost rises with adoption, ePrivacy-AI cost stays flat">
+        <path class="axis" d="M40 20V220H460"/>
+        <path class="saas" id="cv-saas" d="M40 210 L460 40"/>
+        <path class="flat" d="M40 170 H460"/>
+        <circle id="cv-dot-s" r="6" class="dot-s"/><circle id="cv-dot-f" r="6" class="dot-f"/>
+        <text x="46" y="16" class="t2">Annual cost</text><text x="456" y="240" text-anchor="end" class="t2">Adoption →</text>
+        <text id="cv-lab-s" class="lab-s" text-anchor="end">Per-seat / per-token SaaS</text>
+        <text class="lab-f" x="456" y="162" text-anchor="end">ePrivacy-AI flat license</text>
+      </svg>
+    </div>
+
+    <div class="compare reveal">
+      <div class="cmp-h"><span></span><b>Commercial SaaS AI</b><b class="us">ePrivacy-AI</b></div>
+      <div class="cmp-r"><span>Pricing scaling</span><p>Increases linearly with every employee or student added.</p><p class="us">Fixed annual cost. Unlimited users on your compute capacity.</p></div>
+      <div class="cmp-r"><span>Token costs</span><p>Metered per million tokens with vendor markup.</p><p class="us">At-cost compute at raw electricity or base cloud GPU rates.</p></div>
+      <div class="cmp-r"><span>Data custody</span><p>Stored on vendor cloud; subject to vendor TOS changes.</p><p class="us">100% self-hosted. Ownership of data and model weights.</p></div>
+      <div class="cmp-r"><span>Lock-in risk</span><p>Proprietary assistant configurations cannot be exported.</p><p class="us">Open standards, standard models and open agent schemas.</p></div>
+      <div class="cmp-r"><span>When a model changes</span><p>Vendor updates models, often breaking custom prompts.</p><p class="us">You choose when to freeze, update, or swap model weights.</p></div>
+    </div>
+
+    <div class="faq reveal">
+      <details><summary>Can we use open-source models exclusively to eliminate API costs?</summary><p>Yes. You can run open-weights (such as Llama 3 or Mistral) on your own GPUs with $0 external API token costs.</p></details>
+      <details><summary>Can we connect commercial APIs if our security policy permits?</summary><p>Yes. Route specific departments to private Azure OpenAI or Anthropic endpoints while routing sensitive teams to local, air-gapped models.</p></details>
+      <details><summary>What does the license cover?</summary><p>Platform orchestration, agent engine, web workspaces, connectors and software updates. Implementation and deployment packages (bare-metal setup, Kubernetes, SSO, custom connectors) are a one-time cost.</p></details>
+      <details><summary>Do you charge per seat?</summary><p>No. Add users, faculty, and students without ballooning per-seat software costs.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPLOYMENT ============ -->
+<section class="sec" id="deployment">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Deployment &amp; proof of concept</span>
+      <h2>Thirty days, inside <em>your own staging.</em></h2>
+    </div>
+    <ol class="timeline" id="timeline">
+      <li class="reveal"><span class="wk">Week 1</span><h4>Infrastructure &amp; container spin-up</h4><p>Deploy Helm charts on private Kubernetes or Docker Compose on local GPU nodes.</p></li>
+      <li class="reveal"><span class="wk">Week 2</span><h4>Directory &amp; knowledge ingestion</h4><p>Connect SAML/SSO and index initial policy or curriculum documents.</p></li>
+      <li class="reveal"><span class="wk">Week 3</span><h4>Agent configuration &amp; departmental testing</h4><p>Configure custom agents for pilot groups (e.g. 200 faculty or legal analysts).</p></li>
+      <li class="reveal"><span class="wk">Week 4</span><h4>Security audit &amp; executive review</h4><p>Evaluate latency, query accuracy, data isolation integrity and compute utilization.</p></li>
+    </ol>
+    <div class="cols3 prereq">
+      <article class="card spot reveal"><small>Hardware (on-prem)</small><p>Minimum 2× NVIDIA A10G / L40S / A100 (40/80GB) for 70B-parameter local inference. Or any existing CPU/RAM cluster if pointing to private cloud endpoints.</p></article>
+      <article class="card spot reveal"><small>Container runtimes</small><p>Docker Engine 24.0+ with NVIDIA Container Toolkit, or Kubernetes 1.26+.</p></article>
+      <article class="card spot reveal"><small>Networking</small><p>Local access for user endpoints. Outbound internet is optional, required only for remote API model providers.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="sec alt contact" id="contact">
+  <div class="wrap two">
+    <div class="reveal">
+      <span class="eyebrow">Architectural evaluation</span>
+      <h2>Evaluate ePrivacy-AI <em>inside your own perimeter.</em></h2>
+      <p class="lead">Speak directly with a solutions architect. We will evaluate your hardware specifications, compliance constraints, and integration requirements.</p>
+      <p class="assure">🔒 We sign mutual NDAs before any deep architectural review. Your technical inquiries are answered by infrastructure engineers, not outsourced sales qualification teams.</p>
+    </div>
+    <form class="form reveal" id="form" novalidate>
+      <div class="f2"><label>Full name &amp; institutional title<input name="name" required autocomplete="name"></label>
+      <label>Organization / university / health system<input name="org" required autocomplete="organization"></label></div>
+      <label>Preferred deployment target
+        <select name="target"><option>Private Cloud (AWS / Azure / GCP VPC)</option><option>On-Premises Bare Metal / Private Data Center</option><option>Air-Gapped / Classified Network</option></select></label>
+      <label>Primary operational focus
+        <select name="focus"><option>Higher Education (Instruction &amp; Operations)</option><option>Healthcare / Clinical Operations</option><option>Enterprise IT / Helpdesk / Legal</option><option>Scientific Research &amp; HPC</option></select></label>
+      <label>Target timeline for implementation<input name="timeline" placeholder="e.g. Pilot next semester"></label>
+      <label>Message / infrastructure details<textarea name="msg" rows="4"></textarea></label>
+      <button class="btn btn-primary magnetic" type="submit">Request Architectural Review <span class="arr">→</span></button>
+      <p class="ok" id="form-ok" hidden>Thank you. A solutions architect will reply to schedule your review.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div><b class="brand-name">ePrivacy<b>-AI</b></b><p>Sovereign enterprise agent platform and self-hosted AI infrastructure.</p></div>
+    <div><h6>Product</h6><a href="#platform">Architecture</a><a href="#models">Supported models</a><a href="#guardrails">Guardrails</a></div>
+    <div><h6>Governance</h6><a href="#security">Security &amp; compliance</a><a href="#security">Zero-data-retention</a><a href="#pricing">Licensing</a></div>
+    <div><h6>Get started</h6><a href="#deployment">30-day POC</a><a href="#contact">Architectural review</a><a href="#contact">On-prem evaluation license</a></div>
+  </div>
+  <div class="wrap foot-b"><span>© <span id="yr">2026</span> ePrivacy-AI. All rights reserved.</span><span>Sovereign AI. Your data, your perimeter.</span></div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
