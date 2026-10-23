@@ -531,3 +531,6 @@ h1.h2like{font-size:clamp(1.9rem,3.6vw,3rem);font-weight:700;margin:14px 0 18px}
 /* form spam trap and send errors */
 .hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0}
 .form-err{color:var(--bad);font-size:.9rem}
+
+.foot .parent-link{display:inline;padding:0;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.foot .parent-link:hover{color:var(--iris)}
