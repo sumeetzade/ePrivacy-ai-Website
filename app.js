@@ -232,9 +232,6 @@
       ctx.fillStyle = 'rgba(5,22,77,.22)'; ctx.beginPath(); ctx.arc(x, y, o.z, 0, 6.283); ctx.fill();
     });
     // perimeter glow + dashed ring
-    const g = ctx.createRadialGradient(cx, cy, R * .6, cx, cy, R * 1.25);
-    g.addColorStop(0, `rgba(${OK},0)`); g.addColorStop(.8, `rgba(${OK},.07)`); g.addColorStop(1, `rgba(${OK},0)`);
-    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, R * 1.25, 0, 6.283); ctx.fill();
     ctx.lineWidth = 1.5; ctx.strokeStyle = `rgba(${OK},.65)`; ctx.setLineDash([8, 9]); ctx.lineDashOffset = -t * 0.012;
     ctx.beginPath(); ctx.arc(cx, cy, R, 0, 6.283); ctx.stroke();
     ctx.setLineDash([]); ctx.strokeStyle = `rgba(${IRI},.2)`; ctx.beginPath(); ctx.arc(cx, cy, R * .6, 0, 6.283); ctx.stroke();
@@ -251,11 +248,10 @@
     });
     for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) {
       const a = nodes[i], b = nodes[j], d = Math.hypot(a.x - b.x, a.y - b.y), m = R * .36;
-      if (d < m) { ctx.strokeStyle = `rgba(${IRI},${(1 - d / m) * .5})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+      if (d < m) { ctx.strokeStyle = `rgba(${IRI},${(1 - d / m) * .55})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
     }
     nodes.forEach(n => {
       const c = n.hot ? AMB : IRI;
-      if (n.hot) { ctx.fillStyle = `rgba(${c},.18)`; ctx.beginPath(); ctx.arc(n.x, n.y, n.s * 4, 0, 6.283); ctx.fill(); }
       ctx.fillStyle = `rgba(${c},.95)`; ctx.beginPath(); ctx.arc(n.x, n.y, n.s, 0, 6.283); ctx.fill();
     });
 
@@ -267,8 +263,8 @@
     for (let i = packets.length - 1; i >= 0; i--) {
       const p = packets[i];
       p.x += Math.cos(p.a) * p.v; p.y += Math.sin(p.a) * p.v;
-      ctx.fillStyle = `rgba(${BAD},.95)`; ctx.shadowColor = `rgb(${BAD})`; ctx.shadowBlur = 10;
-      ctx.beginPath(); ctx.arc(p.x, p.y, 3, 0, 6.283); ctx.fill(); ctx.shadowBlur = 0;
+      ctx.fillStyle = `rgba(${BAD},.95)`;
+      ctx.beginPath(); ctx.arc(p.x, p.y, 3, 0, 6.283); ctx.fill();
       if (Math.hypot(p.x - cx, p.y - cy) >= R) { flashes.push({ a: p.a, life: 1 }); packets.splice(i, 1); }
     }
     for (let i = flashes.length - 1; i >= 0; i--) {
