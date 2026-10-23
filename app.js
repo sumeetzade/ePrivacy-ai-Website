@@ -38,7 +38,7 @@
   burger.addEventListener('click', () => {
     const o = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', o);
   });
-  const mobile = matchMedia('(max-width: 980px)');
+  const mobile = matchMedia('(max-width: 1180px)');
   $$('.dd-t').forEach(t => t.addEventListener('click', e => {
     if (!mobile.matches) return;
     e.preventDefault();

@@ -538,3 +538,24 @@ h1.h2like{font-size:clamp(1.9rem,3.6vw,3rem);font-weight:700;margin:14px 0 18px}
 /* sector cards: industry name large, explaining sentence small */
 .sol h3{font-size:clamp(1.6rem,2.4vw,2rem);letter-spacing:-.02em;line-height:1.12}
 .sol .sol-line{font:600 .88rem var(--f-body);color:var(--iris);line-height:1.45}
+
+/* pricing: "Most common" tag sits centered on the card's top edge, not clipped */
+.tier.feat{overflow:visible}
+.tier.feat .badge{top:-14px;right:auto;left:50%;transform:translateX(-50%);padding:6px 16px;white-space:nowrap;line-height:1;border-radius:99px;border:2px solid var(--bg)}
+
+/* menu: switch to the burger layout below 1180px so the longer menu never wraps */
+.menu>a,.dd-t{white-space:nowrap}
+@media (max-width:1180px){
+  .burger{display:block}
+  .menu{position:fixed;inset:70px 0 auto;flex-direction:column;align-items:stretch;padding:16px 20px 24px;background:#fff!important;border-bottom:1px solid var(--line);transform:translateY(-12px);opacity:0;pointer-events:none;transition:.3s var(--ease);max-height:calc(100vh - 70px);overflow-y:auto}
+  .menu.open{transform:none;opacity:1;pointer-events:auto}
+  .dd{display:block}
+  .dd-t{justify-content:space-between;width:100%}
+  .dd-t span{font-size:.85rem;opacity:1;transition:transform .25s var(--ease)}
+  .dd.open .dd-t span{transform:rotate(180deg)}
+  .dd-m{position:static;opacity:1;transform:none;pointer-events:auto;background:none!important;border:0;padding:0 0 0 14px;display:none}
+  .dd.open .dd-m{display:block;border-left:2px solid var(--amber);margin:2px 0 8px 12px;padding:4px 0 4px 8px}
+  .dd-m a{padding:12px}
+  .menu .menu-cta{margin:8px 0 0;justify-content:center}
+  .brand .logo{height:42px}
+}
