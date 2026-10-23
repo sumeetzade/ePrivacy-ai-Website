@@ -467,3 +467,14 @@ em,.hero h1 em,.page-hero h1 em,.calc-head h2 em{background:none!important;color
 .hero h1 .w>span,.page-hero h1 .w>span{animation-duration:.6s}
 .vs-card.bad{border-color:var(--bad)}.vs-card.good{border-color:var(--ok)}.l2{border-color:var(--amber)}.egress{border-color:var(--bad)}
 .layer{background:#fff}.slider-box,.verify,.form,.costviz{background:#fff}
+
+/* sector pages */
+.vbars rect{fill:var(--indigo);transform-box:fill-box;transform-origin:bottom;animation:grow 2.6s var(--ease) infinite alternate}
+.vbars rect:nth-child(2){animation-delay:.3s;fill:var(--iris)}.vbars rect:nth-child(3){animation-delay:.6s}.vbars rect:nth-child(4){animation-delay:.9s;fill:var(--amber)}
+@keyframes grow{from{transform:scaleY(.35)}}
+.hexa{fill:none;stroke:var(--iris);stroke-width:2;stroke-dasharray:6 6;animation:dash 3s linear infinite}.hexa.h2{stroke:var(--amber);animation-direction:reverse}
+.ov .card p{color:var(--ink);font-size:.98rem}
+.ov-res{border:2px solid var(--indigo)}
+.page-hero .chips{margin:26px 0 0}
+.sol-cards .sol:last-child:nth-child(odd){grid-column:1/-1}
+.cta-band .others small{color:var(--amber)}
