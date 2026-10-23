@@ -33,3 +33,20 @@ which emails `enquiry@eprivacy-ai.com` through your SMTP server using PHPMailer.
   (your mail provider shows the values), and keep `from_email` on that domain.
 - `max_per_hour` limits how often one visitor can submit. The hidden `website`
   field is a spam trap.
+
+## Clean URLs (no .html)
+
+`.htaccess` serves `/about` from `about.html` and redirects `/about.html` to `/about`.
+Apache needs `mod_rewrite` enabled and `AllowOverride All` for the site folder.
+The rules assume the site is at the domain root.
+
+For nginx, use this instead:
+
+```nginx
+location / {
+    try_files $uri $uri.html $uri/ =404;
+}
+if ($request_uri ~ ^/(.*)\.html(\?|$)) {
+    return 301 /$1;
+}
+```
