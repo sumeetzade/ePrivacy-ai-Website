@@ -48,8 +48,10 @@
       <p class="assure">🔒 We sign mutual NDAs before any deep architectural review. Your technical inquiries are answered by infrastructure engineers, not outsourced sales qualification teams.</p>
     </div>
     <form class="form reveal" id="form" novalidate>
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="f2"><label>Full name &amp; institutional title<input name="name" required autocomplete="name"></label>
       <label>Organization / university / health system<input name="org" required autocomplete="organization"></label></div>
+      <label>Work email<input name="email" type="email" required autocomplete="email"></label>
       <label>Preferred deployment target
         <select name="target"><option>Private Cloud (AWS / Azure / GCP VPC)</option><option>On-Premises Bare Metal / Private Data Center</option><option>Air-Gapped / Classified Network</option></select></label>
       <label>Primary operational focus

@@ -1,0 +1,5 @@
+# Apache: keep credentials and dependency files private
+<FilesMatch "^(config\.php|config\.example\.php|composer\.(json|lock))$">
+  Require all denied
+</FilesMatch>
+Options -Indexes

@@ -174,13 +174,12 @@
     g('lead-x').addEventListener('click', close);
     modal.addEventListener('click', e => { if (e.target === modal) close(); });
     addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
-    g('lead-form').addEventListener('submit', e => {
+    g('lead-form').addEventListener('submit', async e => {
       e.preventDefault();
       let ok = true;
       $$('[required]', e.target).forEach(i => { const bad = !i.value.trim() || (i.type === 'email' && !/^\S+@\S+\.\S+$/.test(i.value)); i.classList.toggle('err', bad); if (bad) ok = false; });
       if (!ok) return;
-      // TODO: POST { ...Object.fromEntries(new FormData(e.target)), scenario: calc.dataset.scenario } to your backend and generate the PDF server-side
-      g('lead-ok').hidden = false;
+      if (await sendForm(e.target, 'tco', { scenario: calc.dataset.scenario })) { g('lead-ok').hidden = false; e.target.reset(); }
     });
   }
 
@@ -194,14 +193,30 @@
   addEventListener('scroll', tlp, { passive: true }); tlp();
   }
 
-  /* ---------- form ---------- */
-  $('#form')?.addEventListener('submit', e => {
+  /* ---------- forms: posted to send-mail.php ---------- */
+  async function sendForm(form, type, extra) {
+    const btn = $('button[type=submit]', form);
+    let note = $('.form-err', form);
+    if (!note) { note = document.createElement('p'); note.className = 'form-err'; note.setAttribute('role', 'alert'); form.append(note); }
+    note.hidden = true;
+    const data = Object.assign(Object.fromEntries(new FormData(form)), { type }, extra || {});
+    const label = btn.innerHTML; btn.disabled = true; btn.textContent = 'Sending…';
+    try {
+      const r = await fetch('send-mail.php', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || !j.ok) throw new Error(j.error || 'We could not send your message. Please email enquiry@eprivacy-ai.com directly.');
+      return true;
+    } catch (err) {
+      note.textContent = err.message; note.hidden = false;
+      return false;
+    } finally { btn.disabled = false; btn.innerHTML = label; }
+  }
+  $('#form')?.addEventListener('submit', async e => {
     e.preventDefault();
     let ok = true;
-    $$('[required]', e.target).forEach(i => { const bad = !i.value.trim(); i.classList.toggle('err', bad); if (bad) ok = false; });
+    $$('[required]', e.target).forEach(i => { const bad = !i.value.trim() || (i.type === 'email' && !/^\S+@\S+\.\S+$/.test(i.value)); i.classList.toggle('err', bad); if (bad) ok = false; });
     if (!ok) return;
-    // TODO: POST new FormData(e.target) to your own backend endpoint
-    $('#form-ok').hidden = false; e.target.reset();
+    if (await sendForm(e.target, 'contact')) { $('#form-ok').hidden = false; e.target.reset(); }
   });
   $('#yr').textContent = new Date().getFullYear();
 
