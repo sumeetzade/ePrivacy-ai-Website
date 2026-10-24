@@ -100,9 +100,47 @@
   };
   const det = $('#detail');
   if (det) {
-  const show = k => { det.innerHTML = `<h4>${D[k][0]}</h4><p>${D[k][1]}</p>`; $$('.node').forEach(n => n.classList.toggle('on', n.dataset.k === k)); };
-  $$('.node').forEach(n => n.addEventListener('click', () => show(n.dataset.k)));
-  show('idp');
+    const home = det.parentElement, narrow = matchMedia('(max-width: 980px)');
+    const nodes = $$('.node');
+    let current = 'idp', sheetOpen = false;
+    const sync = () => {
+      const layer = $('.node.on').closest('.layer');
+      $$('.layer').forEach(l => l.classList.toggle('sel', l === layer));
+      if (narrow.matches) {
+        if (det.parentElement !== document.body) document.body.append(det);
+        det.hidden = !sheetOpen;
+      } else {
+        if (det.parentElement !== home) home.append(det);
+        det.hidden = false;
+      }
+    };
+    const render = k => {
+      current = k;
+      nodes.forEach(n => n.classList.toggle('on', n.dataset.k === k));
+      const i = nodes.findIndex(n => n.dataset.k === k), layer = nodes[i].closest('.layer');
+      det.innerHTML = `<div class="sheet-bar"><button type="button" class="sh-prev" aria-label="Previous component">&#8249;</button><span class="sh-count">${i + 1} / ${nodes.length}</span><button type="button" class="sh-next" aria-label="Next component">&#8250;</button><button type="button" class="sh-x" aria-label="Close">&times;</button></div><small>${$('h5', layer).textContent}</small><h4>${D[k][0]}</h4><p>${D[k][1]}</p>`;
+      det.classList.remove('pop'); void det.offsetWidth; det.classList.add('pop');
+      sync();
+    };
+    // on phones keep the tapped box visible above the bottom sheet
+    const reveal = () => {
+      if (!narrow.matches) return;
+      const r = $('.node.on').getBoundingClientRect();
+      const room = innerHeight * 0.5;
+      if (r.bottom > room || r.top < 80) scrollBy({ top: r.top - 110, behavior: 'smooth' });
+    };
+    nodes.forEach(n => n.addEventListener('click', () => { sheetOpen = true; render(n.dataset.k); reveal(); }));
+    det.addEventListener('click', e => {
+      const i = nodes.findIndex(n => n.dataset.k === current);
+      if (e.target.closest('.sh-x')) { sheetOpen = false; sync(); }
+      else if (e.target.closest('.sh-next')) { render(nodes[(i + 1) % nodes.length].dataset.k); reveal(); }
+      else if (e.target.closest('.sh-prev')) { render(nodes[(i - 1 + nodes.length) % nodes.length].dataset.k); reveal(); }
+    });
+    addEventListener('keydown', e => { if (e.key === 'Escape' && sheetOpen) { sheetOpen = false; sync(); } });
+    narrow.addEventListener('change', sync);
+    // close the sheet once the diagram scrolls out of view
+    new IntersectionObserver(es => { if (!es[0].isIntersecting && sheetOpen) { sheetOpen = false; sync(); } }).observe($('#arch'));
+    render('idp');
   }
 
   /* ---------- confidence threshold ---------- */

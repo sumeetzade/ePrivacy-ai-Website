@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Platform · ePrivacy-AI</title>
+<meta name="description" content="Sovereign architecture, model agnosticism and routing, and a knowledge base with deterministic guardrails, all inside your perimeter.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="assets/logo.png">
+<link rel="preload" href="assets/fonts/Sora-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="progress" aria-hidden="true"><i></i></div>
+<div class="cursor-glow" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="./" class="brand" aria-label="ePrivacy-AI home">
+      <img class="logo" src="assets/logo.svg" alt="ePrivacy-AI" width="224" height="54">
+      <span class="brand-name">ePrivacy<b>-AI</b></span>
+    </a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <div class="dd">
+        <a href="solutions" class="dd-t">Solutions<span>▾</span></a>
+        <div class="dd-m"><a href="solutions-enterprise">Enterprise &amp; Business</a><a href="solutions-legal-compliance">Legal &amp; Compliance</a><a href="solutions-banking-finance">Banking &amp; Finance</a><a href="solutions-ip-research">IP &amp; Research</a><a href="solutions-healthcare">Healthcare &amp; Biomedical</a><a href="solutions-public-sector-defence">Public Sector &amp; Defence</a><a href="solutions-education">Education &amp; eLearning</a></div>
+      </div>
+      <a href="platform" aria-current="page">Platform</a>
+      <a href="security">Trust &amp; Compliance</a>
+      <a href="pricing">Pricing</a>
+      <a href="about">About</a>
+      <a href="https://demo.eprivacy-ai.in/" class="btn btn-sm btn-primary menu-cta" target="_blank" rel="noopener">Live Demo</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+<main id="top">
+<div class="wrap crumb-bar"><div class="crumbs"><a href="./">Home</a><span>/</span><span>Platform</span></div><nav class="jump" aria-label="On this page"><a href="#architecture">Architecture &amp; Sovereignty</a><a href="#models">Model Agnosticism &amp; Routing</a><a href="#guardrails">Knowledge Base &amp; Guardrails</a></nav></div>
+<section class="sec" id="architecture">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h1 class="sec-title">Architecture &amp; Sovereignty</h1>
+      <p class="hero-sentence reveal">Engineered for CISOs and <em>infrastructure architects.</em></p>
+      <p class="lead">Think of ePrivacy-AI as a modular operating system. It sits between your internal users and your chosen computing infrastructure. If an open-source model becomes the best tomorrow, you plug it in without changing the software your team uses every day.</p>
+    </div>
+
+    <div class="arch-grid">
+<div class="arch reveal" id="arch">
+      <div class="perim-label">YOUR PERIMETER · private cloud VPC / bare metal / air-gapped</div>
+      <div class="layer l1"><h5>Enterprise control plane</h5>
+        <div class="nodes">
+          <button class="node on" data-k="idp">Identity &amp; Access<small>SAML 2.0 / OIDC</small></button>
+          <button class="node" data-k="audit">Audit Logs &amp; Token Quotas<small>SIEM-ready</small></button>
+        </div></div>
+      <div class="flowcol" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="layer l2"><h5>ePrivacy-AI agent runtime</h5>
+        <div class="nodes">
+          <button class="node" data-k="parse">Context Extraction<small>Docling / table parser</small></button>
+          <button class="node" data-k="agents">Agent Blueprint Hub<small>Stateful ReAct / DAG</small></button>
+          <button class="node" data-k="guard">Prompt Guard<small>Sanitizer</small></button>
+        </div></div>
+      <div class="flowcol" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="layer l3"><h5>Infrastructure / data plane</h5>
+        <div class="nodes">
+          <button class="node" data-k="vec">Vector &amp; Metadata DB<small>pgvector / Qdrant</small></button>
+          <button class="node" data-k="inf">Private Inference<small>vLLM / TensorRT-LLM</small></button>
+        </div></div>
+      <div class="egress"><span>🌐 Public internet</span><b>✕ no egress route required</b></div>
+    </div>
+    <div class="detail-col"><aside class="detail" id="detail" aria-live="polite"></aside></div>
+</div>
+
+      </div>
+</section>
+
+<section class="sec" id="models">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2 class="sec-title">Model Agnosticism &amp; Routing</h2>
+      <p class="hero-sentence reveal">One workspace, <em>any model.</em></p>
+      <p class="lead">A native abstraction layer supports local open-weights (Llama 3, Mistral Large, Qwen, DeepSeek) and private enterprise endpoints (Azure OpenAI, AWS Bedrock). Route specific departments to private commercial endpoints while sensitive teams stay on local, air-gapped models.</p></div>
+    <h3 class="sub reveal">Technical specifications</h3>
+    <div class="spec reveal">
+      <div class="spec-row"><b>Inference Engines</b><p>Direct integration with vLLM (PagedAttention), NVIDIA Triton, Ollama, or private cloud endpoints (AWS Bedrock, Azure OpenAI).</p></div>
+      <div class="spec-row"><b>Model Compatibility</b><p>Llama 3/3.3, Mistral/Mixtral, DeepSeek R1/V3, Qwen, Falcon, or any Hugging Face standard weight format.</p></div>
+      <div class="spec-row"><b>Vector Search &amp; RAG</b><p>Native Qdrant, pgvector, or Milvus integrations; hybrid dense/sparse search (BM25 + BGE/Cohere embeddings).</p></div>
+      <div class="spec-row"><b>Access Control (RBAC)</b><p>SAML 2.0, OAuth2/OIDC, Microsoft Entra ID, LDAP. Attribute-based document filtering at the vector retrieval layer.</p></div>
+      <div class="spec-row"><b>Data Encryption</b><p>AES-256 at rest; TLS 1.3 for the internal service mesh (mTLS via Istio or Linkerd).</p></div>
+      <div class="spec-row"><b>Auditing &amp; SIEM</b><p>JSON structured logging, Prometheus metrics, OpenTelemetry tracing, and syslog integration for Splunk/Datadog.</p></div>
+    </div>
+
+    <div class="cols3 pillars">
+      <article class="card spot reveal"><span class="ico">⇆</span><h4>Model Agnosticism</h4><p>Abstraction layer for local open-weights (Llama 3, Mistral Large, Qwen, DeepSeek) and private endpoints (Azure OpenAI, AWS Bedrock). Route departments to different models by policy.</p></article>
+      <article class="card spot reveal"><span class="ico">◎</span><h4>Deterministic RAG Engine</h4><p>Strict context boundaries so answers come only from authorized internal files, with line-level citations. Hybrid HNSW + BM25 with cross-encoder re-ranking.</p></article>
+      <article class="card spot reveal"><span class="ico">⚙</span><h4>Agentic Execution Engine</h4><p>Stateful, multi-step orchestration with code interpretation, SQL querying, and multi-document synthesis.</p></article>
+    </div>
+  
+  </div>
+</section>
+
+<section class="sec" id="guardrails">
+  <div class="wrap two">
+    <div class="reveal">
+      <h2 class="sec-title">Knowledge Base &amp; Guardrails</h2>
+      <p class="hero-sentence reveal">Answers must <em>earn their way out.</em></p>
+      <p class="lead">Before returning an answer, the pipeline scores the generated output against retrieved source fragments. Answers below a configurable confidence threshold are suppressed or routed to human supervisors.</p>
+      <p>Automated code execution, API tool calls, and database queries run inside ephemeral, non-root micro-VMs or isolated containers with zero write access to the host.</p>
+      <div class="slider-box">
+        <label for="thr">Confidence threshold <output id="thr-out">70%</output></label>
+        <input type="range" id="thr" min="30" max="95" value="70">
+        <small>Illustrative demo — drag to see which answers are released.</small>
+      </div>
+    </div>
+    <div class="verify reveal" id="verify">
+      <div class="pipe"><span>Query</span><i></i><span>Retrieve</span><i></i><span>Generate</span><i></i><span class="hot">Score vs. sources</span></div>
+      <ul class="answers">
+        <li data-s="92"><div class="ans"><b>"Refund window is 30 days."</b><small>Policy §4.2 · p.18</small></div><div class="meter"><i style="--w:92%"></i></div><em>92%</em><span class="verdict"></span></li>
+        <li data-s="74"><div class="ans"><b>"Applies to all enrolment types."</b><small>Handbook §2.1 · p.6</small></div><div class="meter"><i style="--w:74%"></i></div><em>74%</em><span class="verdict"></span></li>
+        <li data-s="51"><div class="ans"><b>"Exceptions are decided by the Dean."</b><small>No matching source</small></div><div class="meter"><i style="--w:51%"></i></div><em>51%</em><span class="verdict"></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div><img class="logo foot-logo" src="assets/logo.svg" alt="ePrivacy-AI" width="224" height="54"><p>Sovereign enterprise agent platform and self-hosted AI infrastructure.</p></div>
+    <div><h6>Solutions</h6><a href="solutions-enterprise">Enterprise &amp; Business</a><a href="solutions-legal-compliance">Legal &amp; Compliance</a><a href="solutions-banking-finance">Banking &amp; Finance</a><a href="solutions-ip-research">IP &amp; Research</a><a href="solutions-healthcare">Healthcare &amp; Biomedical</a><a href="solutions-public-sector-defence">Public Sector &amp; Defence</a><a href="solutions-education">Education &amp; eLearning</a></div>
+    <div><h6>Platform</h6><a href="platform#architecture">Architecture &amp; Sovereignty</a><a href="platform#models">Model Agnosticism &amp; Routing</a><a href="platform#guardrails">Knowledge Base &amp; Guardrails</a></div>
+    <div><h6>Company</h6><a href="security">Trust &amp; compliance</a><a href="pricing">Pricing</a><a href="about">About us</a><a href="https://demo.eprivacy-ai.in/" target="_blank" rel="noopener">Live demo</a><a href="contact">Contact</a></div>
+  </div>
+  <div class="wrap foot-b"><span>© <span id="yr">2026</span> ePrivacy-AI. All rights reserved.</span><span>A solution by <a class="parent-link" href="https://enlinkit.com/" target="_blank" rel="noopener">Enlink Managed Services Pvt Ltd</a></span></div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

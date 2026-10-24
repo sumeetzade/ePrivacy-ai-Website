@@ -121,8 +121,8 @@ if ($type === 'contact') {
     if ($name === '' || $org === '') {
         respond(422, ['ok' => false, 'error' => 'Please fill in your name and organization.']);
     }
-    $subject = 'Architectural review request: ' . $org;
-    $body = "New architectural review request\n\n"
+    $subject = 'Website enquiry: ' . $org;
+    $body = "New website enquiry\n\n"
         . "Name and title: $name\n"
         . "Organization: $org\n"
         . "Email: $email\n"
@@ -131,8 +131,8 @@ if ($type === 'contact') {
         . 'Timeline: ' . line($in['timeline'] ?? '') . "\n\n"
         . "Message:\n" . block($in['msg'] ?? '') . "\n";
     $replyName = $name;
-    $confirm = "Thank you for contacting ePrivacy-AI. A solutions architect will reply shortly to schedule your architectural review.\n\n"
-        . 'We sign mutual NDAs before any deep architectural review.';
+    $confirm = "Thank you for contacting ePrivacy-AI. A solutions architect will reply to you shortly.\n\n"
+        . 'We sign mutual NDAs before any in-depth technical review.';
 } elseif ($type === 'tco') {
     $domain = line($in['domain'] ?? '');
     if ($domain === '') {

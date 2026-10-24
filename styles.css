@@ -559,3 +559,155 @@ h1.h2like{font-size:clamp(1.9rem,3.6vw,3rem);font-weight:700;margin:14px 0 18px}
   .menu .menu-cta{margin:8px 0 0;justify-content:center}
   .brand .logo{height:42px}
 }
+
+/* alternating section bands (flat shades) so each section's start and end are clear */
+:root{--band:#edf1f8}
+.nav,.nav.stuck{background:var(--band);backdrop-filter:none;border-bottom:1px solid var(--line)}
+main>section{border:0}
+main>section.sec:nth-of-type(odd){background:#fff}
+main>section.sec:nth-of-type(even){background:var(--band);border-block:1px solid var(--line)}
+.hero,.page-hero{background:#fff}
+.marquee{background:#fff}
+.foot{background:#e3e9f3;border-top:1px solid var(--line)}
+
+/* navigation: grey menu surfaces, white highlight for hover and current page */
+.menu{background:transparent!important}
+.dd-m{background:var(--band)!important;border:1px solid var(--line)}
+.menu>a:hover,.dd:hover>.dd-t,.dd:focus-within>.dd-t,.dd-m a:hover,.menu a[aria-current=page]{background:#fff;color:var(--ink)}
+.dd-m a[aria-current=page]{font-weight:600}
+@media (max-width:1180px){
+  .menu{background:var(--band)!important}
+  .dd-m{background:transparent!important;border:0}
+}
+
+/* sector page header: industry name large, main sentence smaller */
+.page-hero h1{font-size:clamp(2.6rem,5.6vw,4.6rem);margin:6px 0 14px}
+.hero-sentence{font:600 clamp(1.1rem,1.7vw,1.4rem) var(--f-head);line-height:1.35;color:var(--ink);max-width:48ch;margin:0 0 16px;letter-spacing:-.01em}
+.hero-sentence em{background:none;color:var(--iris);-webkit-text-fill-color:var(--iris)}
+
+/* platform page: three sections on one page */
+.sec-title{font-family:var(--f-head);font-weight:700;font-size:clamp(2.2rem,4.8vw,3.8rem);line-height:1.08;letter-spacing:-.025em;margin:6px 0 14px}
+.sec-head .hero-sentence,.reveal>.hero-sentence{max-width:52ch}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.jump a{padding:9px 16px;border:1px solid var(--line);border-radius:99px;background:#fff;font:500 .86rem var(--f-body);color:var(--ink);transition:.2s}
+.jump a:hover{border-color:var(--indigo);background:var(--indigo);color:var(--amber)}
+main>section[id]{scroll-margin-top:76px}
+
+/* architecture: detail card beside the diagram (desktop) or inside the tapped layer (phone) */
+.arch-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:24px;align-items:start}
+.detail-col{position:sticky;top:96px}
+.detail{margin:0;padding:24px;border:2px solid var(--indigo);border-radius:18px;background:#fff;border-left-width:2px}
+.detail small{display:inline-block;font:500 .7rem var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--indigo);background:var(--amber);padding:3px 10px;border-radius:99px;margin-bottom:12px}
+.detail h4{font-size:1.35rem;margin-bottom:10px}
+.detail p{font-size:.98rem;color:var(--mute)}
+.detail.pop{animation:detailPop .45s var(--ease)}
+@keyframes detailPop{from{opacity:0;transform:translateX(14px)}}
+.layer.sel{border-color:var(--indigo);border-width:2px}
+@media (max-width:980px){
+  .arch-grid{grid-template-columns:minmax(0,1fr)}
+  .detail-col{position:static}
+  .layer .detail{margin-top:14px;padding:18px;scroll-margin-block:90px;animation-name:detailDrop}
+  .layer .detail.pop{animation:detailDrop .4s var(--ease)}
+}
+@keyframes detailDrop{from{opacity:0;transform:translateY(-10px)}}
+
+/* architecture detail: bottom sheet on phones and tablets */
+.sheet-bar{display:none}
+@media (max-width:980px){
+  .detail-col{display:none}
+  .detail{position:fixed;left:0;right:0;bottom:0;z-index:80;margin:0;max-height:48vh;overflow-y:auto;border-radius:18px 18px 0 0;border-width:2px 0 0;border-color:var(--indigo);padding:12px max(18px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px));animation:sheetUp .35s var(--ease)}
+  .detail[hidden]{display:none}
+  .detail.pop{animation:none}
+  .sheet-bar{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+  .sheet-bar button{width:40px;height:40px;border:1px solid var(--line);border-radius:10px;background:var(--band);color:var(--ink);font:600 1.3rem/1 var(--f-head);cursor:pointer}
+  .sheet-bar .sh-x{margin-left:auto;background:var(--indigo);color:var(--amber)}
+  .sh-count{font:500 .78rem var(--f-mono);color:var(--dim);min-width:46px;text-align:center}
+}
+@keyframes sheetUp{from{transform:translateY(100%)}}
+
+/* Trust & Compliance: one header style for every section, calmer key figures */
+.sec-title.md{font-size:clamp(1.8rem,3.2vw,2.5rem);margin:0 0 10px}
+.sec-title.md + .hero-sentence{font-size:clamp(1.05rem,1.5vw,1.2rem);margin:0 0 14px}
+.sec-title.md ~ .lead{font-size:1.02rem}
+.stats.compact{margin:30px 0 0}
+.stats.compact>div{padding:16px 18px}
+.stats.compact b{font-size:clamp(1.25rem,2vw,1.6rem)}
+.stats.compact small{font-size:.82rem}
+.sec-head + .cols2,.sec-head + .spec{margin-top:8px}
+
+/* tighter vertical rhythm: same layout, less empty space (spacing scale 8 / 16 / 24 / 32 / 48 / 64) */
+:root{--sp-sec:clamp(48px,5.5vw,80px)}
+.sec{padding:var(--sp-sec) 0}
+.sec-head{margin-bottom:clamp(24px,3vw,36px)}
+.sec-head h2,h2{margin:10px 0 12px}
+.sub{margin:44px 0 18px}
+.hero{min-height:min(92svh,780px);padding:96px 0 48px}
+.page-hero{padding:104px 0 52px}
+.hero h1{margin:16px 0 18px}
+.cta-row{margin:24px 0 20px}
+.crumb-bar{padding-top:96px}
+.crumb-bar + .sec{padding-top:24px}
+.card,.tier{padding:24px}
+.uc{padding:24px}
+.two{gap:clamp(28px,4.5vw,56px)}
+.tiers,.cols3,.cols2,.sol-cards,.ucs{gap:16px}
+.faq{margin-top:32px}
+.compare{margin-top:0}
+.costviz{margin:40px 0}
+.arch{padding-top:40px}
+.timeline{margin-bottom:16px}
+.cta-band{padding:clamp(24px,4vw,40px)}
+.foot{padding:44px 0 24px}
+.foot-b{margin-top:28px}
+.marquee{padding:14px 0}
+@media (max-width:980px){
+  .sec{padding:clamp(40px,8vw,56px) 0}
+  .hero{min-height:0;padding:92px 0 40px}
+  .page-hero{padding:92px 0 40px}
+  .crumb-bar{padding-top:88px}
+  .sub{margin:32px 0 14px}
+}
+@media (max-width:980px){
+  .sec{padding:clamp(34px,8vw,46px) 0}
+  .sec-head{margin-bottom:20px}
+  .card,.tier,.uc{padding:20px}
+  .cta-row{margin:20px 0 16px}
+  .tiers,.cols3,.cols2,.sol-cards,.ucs{gap:12px}
+  .foot{padding:36px 0 20px}
+}
+
+/* ===== type scale: one size per role on every page ===== */
+:root{
+  --t-h1:clamp(2.2rem,4.2vw,3.2rem);      /* page title (first section of a page) */
+  --t-h2:clamp(1.75rem,3vw,2.35rem);      /* section title */
+  --t-h3:1.4rem;                           /* sub-section heading */
+  --t-sentence:clamp(1.05rem,1.5vw,1.2rem);/* sentence under a section title */
+  --t-lead:1.0625rem;                      /* intro paragraph under a title */
+  --t-body:1rem;                           /* section content text */
+  --t-box-title:1.15rem;                   /* title inside a box / card */
+  --t-small:.95rem;                        /* text inside a box / card */
+  --t-label:.75rem;                        /* small caps labels */
+}
+h2,.sec-title,.sec-title.md,h2.sec-title,.calc-head h2,.cta-band h2{font-size:var(--t-h2)}
+h1.sec-title.md,h1.sec-title,h1.h2like,.page-hero h1{font-size:var(--t-h1);line-height:1.1}
+.sub,h3.sub{font-size:var(--t-h3)}
+.hero-sentence,.sec-title.md + .hero-sentence{font-size:var(--t-sentence)}
+.lead,.sec-title.md ~ .lead,.sec-head .lead{font-size:var(--t-lead)}
+.two p,.panel p,.cta-band p,.assure,.co-cta p{font-size:var(--t-body)}
+.card h4,.tier h4,.uc h3,.detail h4,.timeline h4,.pillars h4{font-size:var(--t-box-title)}
+.card p,.tier .for,.tier li,.uc .pfo>div,.uc p,.spec-row p,.timeline p,.deep-grid p,.detail p,.flow3>div,.faq p,.cmp-r p,.sol p{font-size:var(--t-small)}
+.eyebrow,.card small,.tier small,.uc .pfo small{font-size:var(--t-label)}
+.two .lead,.panel .lead,.cta-band .lead{font-size:var(--t-lead)}
+.two .hero-sentence{font-size:var(--t-sentence)}
+.ov .card p{font-size:var(--t-small)}
+
+/* home hero: compact enough to show headline, text and buttons on a 1280x600 laptop viewport */
+.hero{min-height:0;padding:88px 0 36px}
+.hero h1{font-size:clamp(2.1rem,3.9vw,3.4rem);line-height:1.08;margin:12px 0 14px}
+.hero .cta-row{margin:20px 0 14px}
+.hero .trusted{font-size:.85rem;margin:0}
+@media (max-width:980px){
+  .hero{padding:84px 0 28px}
+  .hero-vis{height:300px;margin-top:0}
+}
+.scroll-hint{display:none}

@@ -9,6 +9,12 @@ DirectoryIndex index.html
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
+# Old platform pages are now sections of /platform
+RewriteRule ^deployment(\.html)?$ /pricing#deployment [R=301,L,NE]
+RewriteRule ^platform-architecture(\.html)?$ /platform#architecture [R=301,L,NE]
+RewriteRule ^platform-models(\.html)?$ /platform#models [R=301,L,NE]
+RewriteRule ^platform-guardrails(\.html)?$ /platform#guardrails [R=301,L,NE]
+
 # /index.html -> /
 RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
 RewriteRule ^index\.html$ / [R=301,L]
