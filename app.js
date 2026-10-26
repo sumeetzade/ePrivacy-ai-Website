@@ -184,10 +184,10 @@
     };
     const FIXED_SEAT = 30;
     const posToUsers = p => {
-      const raw = 100 * Math.pow(50, p / 100); // 100 to 5,000, logarithmic
-      return raw < 1000 ? Math.round(raw / 25) * 25 : Math.round(raw / 100) * 100;
+      const raw = 100 * Math.pow(10, p / 100); // 100 to 1,000, logarithmic
+      return raw < 500 ? Math.round(raw / 25) * 25 : Math.round(raw / 50) * 50;
     };
-    const usersToPos = u => Math.round(100 * Math.log(u / 100) / Math.log(50));
+    const usersToPos = u => Math.round(100 * Math.log10(u / 100));
     let tier = 'enterprise', exact = 500;
     const run = () => {
       const ent = tier === 'enterprise';
@@ -196,7 +196,7 @@
       if (ent) {
         users = exact || posToUsers(+g('c-users').value); seat = +g('c-seat').value;
         lic = 3499; comp = 1800 + 2 * Math.max(0, users - 300); name = 'Enterprise';
-        const label = users >= 5000 ? '5,000+' : users.toLocaleString('en-US');
+        const label = users.toLocaleString('en-US') + (users >= 1000 ? ' (maximum)' : '');
         g('c-users-o').textContent = label; g('c-users').setAttribute('aria-valuetext', label + ' users');
         g('c-seat-o').textContent = '$' + seat;
       } else {
