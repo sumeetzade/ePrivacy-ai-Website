@@ -95,17 +95,20 @@
   <div class="calc-grid">
     <div class="calc-in">
       <h3>Your organization's parameters</h3>
-      <div class="ctl"><span class="lbl">Quick presets</span>
-        <div class="presets" id="presets" role="group" aria-label="Team size presets">
-          <button type="button" data-u="15">5–20 · Starter</button>
-          <button type="button" data-u="40">20–50 · Standard</button>
-          <button type="button" data-u="80">50–100 · Pro</button>
-          <button type="button" data-u="300">100+ · Enterprise</button>
+      <div class="ctl"><span class="lbl">Choose a tier</span>
+        <div class="presets" id="presets" role="group" aria-label="Tier">
+          <button type="button" data-tier="starter">Starter · 5–20</button>
+          <button type="button" data-tier="standard">Standard · 20–50</button>
+          <button type="button" data-tier="pro">Pro · 50–100</button>
+          <button type="button" data-tier="enterprise">Enterprise · 100+</button>
         </div></div>
-      <div class="ctl"><label for="c-users">Active knowledge workers <output id="c-users-o">35</output></label>
-        <input id="c-users" type="range" min="0" max="100" step="1" value="28" aria-valuetext="35 users"><div class="ticks"><span>5</span><span>50</span><span>500</span><span>5,000+</span></div></div>
-      <div class="ctl"><label for="c-seat">Current SaaS cost / seat / month <output id="c-seat-o">$30</output></label>
-        <input id="c-seat" type="range" min="15" max="60" step="5" value="30"><div class="ticks"><span>$15 Basic</span><span>$30 Enterprise</span><span>$60 Specialized</span></div></div>
+      <p class="fixed-note" id="fixed-note">Fixed example: <b id="fx-users">40</b> users compared with a SaaS alternative at <b>0</b> per user per month. Choose Enterprise to adjust team size and SaaS price.</p>
+      <div id="ent-controls" hidden>
+        <div class="ctl"><label for="c-users">Active knowledge workers <output id="c-users-o">500</output></label>
+          <input id="c-users" type="range" min="0" max="100" step="1" value="41" aria-valuetext="500 users"><div class="ticks"><span>100</span><span>5,000+</span></div></div>
+        <div class="ctl"><label for="c-seat">Current SaaS cost / seat / month <output id="c-seat-o">0</output></label>
+          <input id="c-seat" type="range" min="15" max="60" step="5" value="30"><div class="ticks"><span>5 Basic</span><span>0 Enterprise</span><span>0 Specialized</span></div></div>
+      </div>
     </div>
     <div class="calc-out" aria-live="polite">
       <div class="co-top"><span id="o-tier">Standard tier</span><b id="o-pct">0% cost reduction</b></div>
@@ -127,7 +130,7 @@
   </div>
   <details class="method"><summary>How this is calculated</summary>
     <p><b>Per-seat SaaS:</b> users × seat price × 12.</p>
-    <p><b>ePrivacy-AI:</b> the tier license plus estimated compute, both per month, times 12. The tier follows team size: Starter up to 20 users ($299 license, $150 compute), Standard up to 50 ($699, $400), Pro up to 100 ($1,499, $900), Enterprise above 100 ($3,499 license, $1,800 compute plus $2 for each user above 300).</p>
+    <p><b>ePrivacy-AI:</b> the tier license plus estimated compute, both per month, times 12. Starter, Standard and Pro are fixed examples that match the cost examples above: Starter 15 users (99 license, 20 compute), Standard 40 users (99, 00) and Pro 80 users (,499, 00), each against SaaS at $30 per user per month. Enterprise is adjustable from 100 to 5,000+ users: $3,499 license plus $1,800 compute, with $2 more for each user above 300.</p>
     <p>This is an illustrative planning model, not a quote. Your compute may cost less or more. At small team sizes, per-seat SaaS can cost less than a flat license; the difference is that your data stays in your environment.</p>
   </details>
 </div>

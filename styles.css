@@ -756,3 +756,9 @@ h1.sec-title.md,h1.sec-title,h1.h2like,.page-hero h1{font-size:var(--t-h1);line-
 .tier-badges b{font:700 1.05rem var(--f-head);color:var(--ink)}
 .tier-badges span{font:400 .82rem var(--f-mono);color:var(--mute)}
 @media (max-width:980px){.tier-badges{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* calculator: fixed examples for Starter, Standard, Pro; sliders only for Enterprise */
+[hidden]{display:none!important}
+.fixed-note{margin:0;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--band);font-size:var(--t-small);color:var(--mute)}
+.fixed-note b{color:var(--ink)}
+#ent-controls{display:grid;gap:26px}
