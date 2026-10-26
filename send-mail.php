@@ -136,7 +136,7 @@ if ($type === 'contact') {
 } elseif ($type === 'tco') {
     $domain = line($in['domain'] ?? '');
     if ($domain === '') {
-        respond(422, ['ok' => false, 'error' => 'Please enter your institutional domain.']);
+        respond(422, ['ok' => false, 'error' => 'Please enter your organization domain.']);
     }
     $scenario = json_decode(is_string($in['scenario'] ?? null) ? $in['scenario'] : '', true);
     $lines = '';
@@ -150,7 +150,7 @@ if ($type === 'contact') {
     $subject = 'TCO summary request: ' . $domain;
     $body = "New TCO summary request\n\n"
         . "Email: $email\n"
-        . "Institutional domain: $domain\n"
+        . "Organization domain: $domain\n"
         . 'Timeline: ' . line($in['timeline'] ?? '') . "\n\n"
         . "Calculator scenario:\n" . ($lines ?: "(not provided)\n");
     $replyName = '';
