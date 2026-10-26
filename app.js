@@ -174,39 +174,52 @@
   /* ---------- ROI calculator ---------- */
   const calc = $('#calc');
   if (calc) {
-    const usd = n => '$' + Math.round(n).toLocaleString('en-US');
-    let mode = 'cloud_vpc';
+    const usd = n => '$' + Math.round(Math.abs(n)).toLocaleString('en-US');
     const g = id => document.getElementById(id);
+    const MIN = 5, MAX = 5000;
+    // the slider is logarithmic so small teams and large enterprises are both easy to set
+    const posToUsers = p => {
+      const raw = MIN * Math.pow(MAX / MIN, p / 100);
+      if (raw < 50) return Math.round(raw);
+      if (raw < 200) return Math.round(raw / 5) * 5;
+      if (raw < 1000) return Math.round(raw / 25) * 25;
+      return Math.round(raw / 100) * 100;
+    };
+    const usersToPos = u => Math.round(100 * Math.log(u / MIN) / Math.log(MAX / MIN));
+    // tier license and estimated compute, per month
+    const tierFor = u => u <= 20 ? { n: 'Starter', lic: 299, comp: 150 } : u <= 50 ? { n: 'Standard', lic: 699, comp: 400 } : u <= 100 ? { n: 'Pro', lic: 1499, comp: 900 } : { n: 'Enterprise', lic: 3499, comp: 1800 + 2 * Math.max(0, u - 300) };
+    let exact = null; // set by the presets so their numbers are used exactly
     const run = () => {
-      const users = +g('c-users').value, seat = +g('c-seat').value, q = +g('c-q').value;
-      g('c-users-o').textContent = users.toLocaleString('en-US'); g('c-seat-o').textContent = '$' + seat; g('c-q-o').textContent = q + ' prompts';
-      const base = users * seat * 12;
-      const overage = q > 20 ? users * (q - 20) * 0.008 * 250 : 0;
-      const saas = Math.round(base + overage);
-      let lic = 36000;
-      if (users > 5000) lic = 78000; else if (users > 2000) lic = 58000; else if (users > 800) lic = 48000;
-      const conc = Math.max(1, Math.ceil(users * q / (8 * 60)));
-      const nodes = Math.max(1, Math.ceil(conc / 25));
-      const compute = mode === 'cloud_vpc' ? nodes * 1800 * 12 : nodes * 950 * 12;
-      const ep = Math.round(lic + compute);
-      const save = Math.max(0, saas - ep), pct = saas > 0 ? Math.round(save / saas * 100) : 0;
-      g('o-pct').textContent = pct + '% cost reduction';
-      g('o-save').textContent = usd(save); g('o-3y').textContent = usd(save * 3);
-      g('o-pay').textContent = save > 0 ? (lic / save * 12).toFixed(1) + ' months' : 'not reached';
+      const slider = g('c-users');
+      const users = exact || posToUsers(+slider.value), seat = +g('c-seat').value;
+      const t = tierFor(users);
+      const label = users >= MAX ? '5,000+' : users.toLocaleString('en-US');
+      g('c-users-o').textContent = label; slider.setAttribute('aria-valuetext', label + ' users');
+      g('c-seat-o').textContent = '$' + seat;
+      const saas = users * seat * 12, ep = (t.lic + t.comp) * 12, save = saas - ep;
+      const pct = saas > 0 ? Math.round(Math.abs(save) / saas * 100) : 0;
+      g('o-tier').textContent = t.n + ' tier';
+      g('o-pct').textContent = save >= 0 ? pct + '% cost reduction' : pct + '% higher cost';
+      g('o-save-l').textContent = save >= 0 ? 'Annual savings' : 'Annual difference';
+      g('o-save').textContent = (save < 0 ? '-' : '') + usd(save);
+      g('o-save-s').textContent = save >= 0 ? 'Versus per-seat SaaS' : 'Per-seat SaaS costs less at this size';
+      g('o-3y').textContent = (save < 0 ? '-' : '') + usd(save * 3);
+      g('o-mo').textContent = (save < 0 ? '-' : '') + usd(save / 12);
       g('o-saas').textContent = usd(saas) + ' / yr'; g('o-ep').textContent = usd(ep) + ' / yr';
       g('bar-ep').style.width = Math.min(100, Math.round(ep / saas * 100)) + '%';
-      g('o-lic').textContent = usd(lic);
-      g('o-gpu-l').textContent = 'Estimated GPU infrastructure (' + nodes + (nodes === 1 ? ' node' : ' nodes') + ')';
-      g('o-gpu').textContent = usd(compute);
-      calc.dataset.scenario = JSON.stringify({ users, seat, q, mode, saas, ep, save });
+      g('o-lic').textContent = usd(t.lic) + ' / mo';
+      g('o-gpu-l').textContent = 'Estimated compute (BYOC)';
+      g('o-gpu').textContent = '~' + usd(t.comp) + ' / mo';
+      const names = ['Starter', 'Standard', 'Pro', 'Enterprise'];
+      $$('#presets button', calc).forEach((b, i) => { const on = names[i] === t.n; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+      calc.dataset.scenario = JSON.stringify({ users, seat, tier: t.n, license: t.lic, compute: t.comp, saas: Math.round(saas), ep: Math.round(ep), save: Math.round(save) });
     };
-    ['c-users', 'c-seat', 'c-q'].forEach(id => g(id).addEventListener('input', run));
-    $$('.seg button', calc).forEach(b => b.addEventListener('click', () => {
-      mode = b.dataset.mode;
-      $$('.seg button', calc).forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', x === b); });
-      run();
+    g('c-users').addEventListener('input', () => { exact = null; run(); });
+    g('c-seat').addEventListener('input', run);
+    $$('#presets button', calc).forEach(b => b.addEventListener('click', () => {
+      exact = +b.dataset.u; g('c-users').value = usersToPos(exact); run();
     }));
-    run();
+    exact = 35; g('c-users').value = usersToPos(35); run();
     const modal = g('lead'), open = () => { modal.hidden = false; $('input', modal).focus(); }, close = () => { modal.hidden = true; };
     g('open-lead').addEventListener('click', open);
     g('lead-x').addEventListener('click', close);

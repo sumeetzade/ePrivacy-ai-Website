@@ -141,7 +141,7 @@ if ($type === 'contact') {
     $scenario = json_decode(is_string($in['scenario'] ?? null) ? $in['scenario'] : '', true);
     $lines = '';
     if (is_array($scenario)) {
-        foreach (['users' => 'Users', 'seat' => 'SaaS seat cost / month ($)', 'q' => 'Queries / user / day', 'mode' => 'Compute', 'saas' => 'SaaS annual cost ($)', 'ep' => 'ePrivacy-AI annual cost ($)', 'save' => 'Annual savings ($)'] as $k => $label) {
+        foreach (['users' => 'Users', 'tier' => 'Tier', 'seat' => 'SaaS seat cost / month ($)', 'license' => 'License / month ($)', 'compute' => 'Estimated compute / month ($)', 'saas' => 'SaaS annual cost ($)', 'ep' => 'ePrivacy-AI annual cost ($)', 'save' => 'Annual difference ($, negative = SaaS cheaper)'] as $k => $label) {
             if (isset($scenario[$k]) && is_scalar($scenario[$k])) {
                 $lines .= "$label: " . line((string) $scenario[$k], 40) . "\n";
             }
