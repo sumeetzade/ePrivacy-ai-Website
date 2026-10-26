@@ -842,3 +842,6 @@ h1.sec-title.md,h1.sec-title,h1.h2like,.page-hero h1{font-size:var(--t-h1);line-
   .sec-head{margin-bottom:18px}
   .sub{margin:24px 0 10px}
 }
+
+/* intro and body paragraphs use the full content width instead of stopping part-way */
+.sec-head,.lead,.hero-sentence,.sec-head .hero-sentence,.reveal>.hero-sentence,.panel p,.callout p,.table-note,.uc p,.faq p,.detail p,.method p,.spec-row p,.cta-band p,.assure,.incl{max-width:none}
