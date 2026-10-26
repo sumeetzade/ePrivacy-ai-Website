@@ -171,6 +171,19 @@
   }
 
 
+  /* ---------- compliance list: filter by industry ---------- */
+  const reg = $('#reg');
+  if (reg) {
+    const rows = $$('tbody tr', reg), count = $('#reg-count');
+    $$('#reg-filter button').forEach(b => b.addEventListener('click', () => {
+      const f = b.dataset.f;
+      $$('#reg-filter button').forEach(x => x.classList.toggle('on', x === b));
+      let n = 0;
+      rows.forEach(r => { const ok = f === 'all' || r.dataset.ind.split(' ').some(i => i === f || i === 'all'); r.hidden = !ok; if (ok) n++; });
+      count.textContent = f === 'all' ? 'Showing all ' + rows.length + ' frameworks.' : 'Showing ' + n + ' of ' + rows.length + ' frameworks for ' + b.textContent + '.';
+    }));
+  }
+
   /* ---------- tier comparison: on small screens show one tier at a time ---------- */
   const cmp = $('#cmp');
   if (cmp) {

@@ -852,3 +852,32 @@ h1.sec-title.md,h1.sec-title,h1.h2like,.page-hero h1{font-size:var(--t-h1);line-
 .sec-head:last-child{margin-bottom:0}
 .sec .cta-row:last-child{margin-bottom:0}
 .sec-head > h1,.sec-head > h2,.sec-head > .sec-title{margin-top:0}
+
+/* compliance alignment: one list, with the industries each framework applies to */
+.reg-filter{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 16px}
+.reg-filter .lbl{font:500 var(--t-label) var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-right:4px}
+.reg-filter button{padding:8px 14px;border:1.5px solid var(--line);border-radius:99px;background:#fff;color:var(--ink);font:500 .85rem var(--f-body);cursor:pointer;transition:.2s}
+.reg-filter button:hover{border-color:var(--indigo)}
+.reg-filter button.on{background:var(--indigo);border-color:var(--indigo);color:var(--amber)}
+.reg-wrap{border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden}
+.reg{width:100%;border-collapse:collapse;font-size:var(--t-small);line-height:1.5}
+.reg th,.reg td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.reg thead th{background:var(--band);font:600 .85rem var(--f-body);color:var(--ink);border-bottom:2px solid var(--indigo)}
+.reg tbody th{width:27%;font-weight:400;background:#fff}
+.reg .rn{display:block;font:600 1rem var(--f-head);color:var(--ink)}
+.reg .rf{display:block;font:400 .78rem var(--f-mono);color:var(--dim);margin-top:2px}
+.reg td{color:var(--ink)}
+.reg td:last-child{width:24%}
+.reg tbody tr:last-child th,.reg tbody tr:last-child td{border-bottom:0}
+.reg tbody tr:hover th,.reg tbody tr:hover td{background:#f7f9fc}
+.reg .tag{display:inline-block;margin:0 6px 6px 0;padding:3px 10px;border:1px solid var(--line);border-radius:99px;background:var(--band);font:500 .75rem var(--f-body);color:var(--ink)}
+.reg tr[hidden]{display:none}
+@media (max-width:760px){
+  .reg thead{display:none}
+  .reg,.reg tbody,.reg tr,.reg th,.reg td{display:block;width:auto!important}
+  .reg tr{padding:14px 16px;border-bottom:1px solid var(--line)}
+  .reg tbody tr:last-child{border-bottom:0}
+  .reg th,.reg td{padding:0;border:0}
+  .reg td{margin-top:8px}
+  .reg td::before{content:attr(data-label);display:block;font:500 var(--t-label) var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:2px}
+}
