@@ -826,3 +826,19 @@ h1.sec-title.md,h1.sec-title,h1.h2like,.page-hero h1{font-size:var(--t-h1);line-
 .jump{margin-top:18px}
 @media (max-width:980px){.crumb-bar{padding-top:88px}.page-hero{padding-top:88px}.crumb-bar + .page-hero{padding-top:0}}
 .eyebrow{display:flex;width:fit-content;line-height:1.3}
+
+/* one section rhythm for the whole site: 40px above and below every section (28px on phones) */
+:root{--sp-sec:40px;--sp-sec-m:28px}
+.sec{padding:var(--sp-sec) 0}
+.crumb-bar + .sec,.crumb-bar + .page-hero{padding-top:0}
+.page-hero,.hero{padding-bottom:var(--sp-sec)}
+.sec-head{margin-bottom:24px}
+.sub{margin:28px 0 12px}
+.faq{margin-top:24px}
+@media (max-width:980px){
+  .sec{padding:var(--sp-sec-m) 0}
+  .crumb-bar + .sec,.crumb-bar + .page-hero{padding-top:0}
+  .page-hero,.hero{padding-bottom:var(--sp-sec-m)}
+  .sec-head{margin-bottom:18px}
+  .sub{margin:24px 0 10px}
+}
