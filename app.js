@@ -180,7 +180,7 @@
     const FIXED = {
       starter: { name: 'Starter', u: 15, lic: 299, comp: 120 },
       standard: { name: 'Standard', u: 40, lic: 699, comp: 400 },
-      pro: { name: 'Pro', u: 80, lic: 1499, comp: 900 }
+      pro: { name: 'Pro', u: 80, lic: 1250, comp: 900 }
     };
     const FIXED_SEAT = 30;
     const posToUsers = p => {
