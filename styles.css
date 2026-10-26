@@ -762,3 +762,11 @@ h1.sec-title.md,h1.sec-title,h1.h2like,.page-hero h1{font-size:var(--t-h1);line-
 .fixed-note{margin:0;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--band);font-size:var(--t-small);color:var(--mute)}
 .fixed-note b{color:var(--ink)}
 #ent-controls{display:grid;gap:26px}
+
+/* price cards: make clear the fee covers the whole team */
+.tier .price .fee{display:block;margin-bottom:2px;font:500 var(--t-label) var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+.tier .price .bill{display:block}
+.tier .flat{margin:0 0 12px;padding:8px 10px;border-radius:10px;background:var(--band);font:600 .85rem var(--f-body);line-height:1.4;color:var(--ink)}
+.tiers.four .tier li{line-height:1.45}
+.tiers.four .tier ul{gap:8px;margin-bottom:20px}
+.tiers.four .tier p{line-height:1.5}

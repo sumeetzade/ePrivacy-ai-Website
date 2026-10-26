@@ -1,0 +1,25 @@
+# ePrivacy-AI
+
+> ePrivacy-AI is a self-hosted enterprise AI agent platform. Organizations run it on their own hardware or in their own private cloud, so prompts, documents and chat histories stay inside their boundary. It is built by Enlink Managed Services Pvt Ltd.
+
+## Key facts
+- Self-hosted and model-agnostic: works with local open-weight models and private commercial endpoints.
+- Flat annual software license by team-size tier (Starter, Standard, Pro, Enterprise). Customers supply their own compute and pay their provider directly.
+- No per-seat fees or token charges.
+- Live demo: https://demo.eprivacy-ai.in/
+
+## Pages
+- [Home](https://eprivacy-ai.com/): overview
+- [Solutions](https://eprivacy-ai.com/solutions): sectors served
+- [Enterprise & Business](https://eprivacy-ai.com/solutions-enterprise)
+- [Legal & Compliance](https://eprivacy-ai.com/solutions-legal-compliance)
+- [Banking & Finance](https://eprivacy-ai.com/solutions-banking-finance)
+- [IP & Research](https://eprivacy-ai.com/solutions-ip-research)
+- [Healthcare & Biomedical](https://eprivacy-ai.com/solutions-healthcare)
+- [Public Sector & Defence](https://eprivacy-ai.com/solutions-public-sector-defence)
+- [Education & eLearning](https://eprivacy-ai.com/solutions-education)
+- [Platform](https://eprivacy-ai.com/platform): architecture, model routing, knowledge base and guardrails
+- [Trust & Compliance](https://eprivacy-ai.com/security): security and regulatory alignment
+- [Pricing](https://eprivacy-ai.com/pricing): tiers, cost examples, ROI calculator, deployment
+- [About](https://eprivacy-ai.com/about): the company behind ePrivacy-AI
+- [Contact](https://eprivacy-ai.com/contact)
