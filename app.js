@@ -188,7 +188,7 @@
       return raw < 1000 ? Math.round(raw / 25) * 25 : Math.round(raw / 100) * 100;
     };
     const usersToPos = u => Math.round(100 * Math.log(u / 100) / Math.log(50));
-    let tier = 'standard', exact = null;
+    let tier = 'enterprise', exact = 500;
     const run = () => {
       const ent = tier === 'enterprise';
       g('ent-controls').hidden = !ent; g('fixed-note').hidden = ent;
