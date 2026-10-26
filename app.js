@@ -183,20 +183,17 @@
       pro: { name: 'Pro', u: 80, lic: 1250, comp: 900 }
     };
     const FIXED_SEAT = 30;
-    const posToUsers = p => {
-      const raw = 100 * Math.pow(10, p / 100); // 100 to 1,000, logarithmic
-      return raw < 500 ? Math.round(raw / 25) * 25 : Math.round(raw / 50) * 50;
-    };
-    const usersToPos = u => Math.round(100 * Math.log10(u / 100));
-    let tier = 'enterprise', exact = 500;
+    const posToUsers = p => Math.round(100 * Math.pow(4, p / 100) / 5) * 5; // 100 to 400, logarithmic
+    const usersToPos = u => Math.round(100 * Math.log(u / 100) / Math.log(4));
+    let tier = 'enterprise', exact = 400;
     const run = () => {
       const ent = tier === 'enterprise';
       g('ent-controls').hidden = !ent; g('fixed-note').hidden = ent;
       let users, seat, lic, comp, name;
       if (ent) {
         users = exact || posToUsers(+g('c-users').value); seat = +g('c-seat').value;
-        lic = 3499; comp = 1800 + 2 * Math.max(0, users - 300); name = 'Enterprise';
-        const label = users.toLocaleString('en-US') + (users >= 1000 ? ' (maximum)' : '');
+        lic = 3600; comp = 1800 + 2 * Math.max(0, users - 300); name = 'Enterprise';
+        const label = users.toLocaleString('en-US') + (users >= 400 ? ' (maximum)' : '');
         g('c-users-o').textContent = label; g('c-users').setAttribute('aria-valuetext', label + ' users');
         g('c-seat-o').textContent = '$' + seat;
       } else {
@@ -223,7 +220,7 @@
     g('c-seat').addEventListener('input', run);
     $$('#presets button', calc).forEach(b => b.addEventListener('click', () => {
       tier = b.dataset.tier;
-      if (tier === 'enterprise') { exact = 500; g('c-users').value = usersToPos(500); }
+      if (tier === 'enterprise') { exact = 400; g('c-users').value = usersToPos(400); }
       run();
     }));
     run();
