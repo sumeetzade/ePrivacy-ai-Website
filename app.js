@@ -171,38 +171,6 @@
   }
 
 
-  /* ---------- compliance list: region tabs and sector filter ---------- */
-  const reg = $('#reg');
-  if (reg) {
-    const rows = $$('tbody tr', reg), count = $('#reg-count'), help = $$('#reg-help [data-f]');
-    let region = 'u', sector = 'all';
-    const apply = () => {
-      let n = 0;
-      rows.forEach(r => {
-        const ok = r.dataset.region === region && (sector === 'all' || r.dataset.ind === 'all' || r.dataset.ind.split(' ').includes(sector));
-        r.hidden = !ok; if (ok) n++;
-      });
-      const rl = $('#reg-region .on').textContent, sl = $('#reg-sector .on').textContent;
-      count.textContent = 'Showing ' + n + (n === 1 ? ' framework' : ' frameworks') + ' for ' + rl + (sector === 'all' ? ', all sectors.' : ', ' + sl + '.');
-      help.forEach(d => { d.hidden = d.dataset.f !== sector; });
-    };
-    const wire = (sel, set) => $$(sel + ' button').forEach(b => b.addEventListener('click', () => {
-      $$(sel + ' button').forEach(x => x.classList.toggle('on', x === b)); set(b.dataset.f); apply();
-    }));
-    wire('#reg-region', v => { region = v; });
-    wire('#reg-sector', v => { sector = v; });
-    apply();
-  }
-
-  /* ---------- tier comparison: on small screens show one tier at a time ---------- */
-  const cmp = $('#cmp');
-  if (cmp) {
-    $$('#tier-tabs button').forEach(b => b.addEventListener('click', () => {
-      cmp.dataset.show = b.dataset.t;
-      $$('#tier-tabs button').forEach(x => x.setAttribute('aria-selected', x === b));
-    }));
-  }
-
   /* ---------- ROI calculator ---------- */
   const calc = $('#calc');
   if (calc) {
@@ -210,9 +178,9 @@
     const g = id => document.getElementById(id);
     // Starter, Standard and Pro are fixed examples; only Enterprise has adjustable team size
     const FIXED = {
-      starter: { name: 'Starter', u: 20, lic: 299, comp: 120 },
-      standard: { name: 'Standard', u: 50, lic: 699, comp: 400 },
-      pro: { name: 'Pro', u: 100, lic: 1250, comp: 900 }
+      starter: { name: 'Starter', u: 15, lic: 299, comp: 120 },
+      standard: { name: 'Standard', u: 40, lic: 699, comp: 400 },
+      pro: { name: 'Pro', u: 80, lic: 1250, comp: 900 }
     };
     const FIXED_SEAT = 30;
     const posToUsers = p => Math.round(100 * Math.pow(4, p / 100) / 5) * 5; // 100 to 400, logarithmic
