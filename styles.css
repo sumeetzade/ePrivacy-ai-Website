@@ -881,3 +881,12 @@ h1.sec-title.md,h1.sec-title,h1.h2like,.page-hero h1{font-size:var(--t-h1);line-
   .reg td{margin-top:8px}
   .reg td::before{content:attr(data-label);display:block;font:500 var(--t-label) var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:2px}
 }
+
+/* compliance: region tabs, sector filter and the "how self-hosting helps" panel */
+#reg-region{margin-bottom:10px}
+#reg-region button{font-weight:600}
+.help{margin-top:20px;padding:18px 20px;border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:12px;background:#fff}
+.help>small{display:block;font:500 var(--t-label) var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--indigo);margin-bottom:6px}
+.help h4{font-size:var(--t-box-title);margin:0 0 6px}
+.help p{font-size:var(--t-body);color:var(--ink);margin:0}
+.help [hidden]{display:none}

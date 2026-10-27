@@ -171,17 +171,27 @@
   }
 
 
-  /* ---------- compliance list: filter by industry ---------- */
+  /* ---------- compliance list: region tabs and sector filter ---------- */
   const reg = $('#reg');
   if (reg) {
-    const rows = $$('tbody tr', reg), count = $('#reg-count');
-    $$('#reg-filter button').forEach(b => b.addEventListener('click', () => {
-      const f = b.dataset.f;
-      $$('#reg-filter button').forEach(x => x.classList.toggle('on', x === b));
+    const rows = $$('tbody tr', reg), count = $('#reg-count'), help = $$('#reg-help [data-f]');
+    let region = 'u', sector = 'all';
+    const apply = () => {
       let n = 0;
-      rows.forEach(r => { const ok = f === 'all' || r.dataset.ind.split(' ').some(i => i === f || i === 'all'); r.hidden = !ok; if (ok) n++; });
-      count.textContent = f === 'all' ? 'Showing all ' + rows.length + ' frameworks.' : 'Showing ' + n + ' of ' + rows.length + ' frameworks for ' + b.textContent + '.';
+      rows.forEach(r => {
+        const ok = r.dataset.region === region && (sector === 'all' || r.dataset.ind === 'all' || r.dataset.ind.split(' ').includes(sector));
+        r.hidden = !ok; if (ok) n++;
+      });
+      const rl = $('#reg-region .on').textContent, sl = $('#reg-sector .on').textContent;
+      count.textContent = 'Showing ' + n + (n === 1 ? ' framework' : ' frameworks') + ' for ' + rl + (sector === 'all' ? ', all sectors.' : ', ' + sl + '.');
+      help.forEach(d => { d.hidden = d.dataset.f !== sector; });
+    };
+    const wire = (sel, set) => $$(sel + ' button').forEach(b => b.addEventListener('click', () => {
+      $$(sel + ' button').forEach(x => x.classList.toggle('on', x === b)); set(b.dataset.f); apply();
     }));
+    wire('#reg-region', v => { region = v; });
+    wire('#reg-sector', v => { sector = v; });
+    apply();
   }
 
   /* ---------- tier comparison: on small screens show one tier at a time ---------- */
