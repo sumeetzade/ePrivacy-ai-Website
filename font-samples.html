@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Font samples · ePrivacy-AI</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="assets/font-samples/samples.css">
+<style>
+:root{--navy:#05164d;--amber:#ffad00;--band:#edf1f8;--line:#d3d9e6;--mute:#44507a}
+*{box-sizing:border-box;margin:0}
+body{background:#fff;color:var(--navy);font:400 16px/1.5 Inter,system-ui,sans-serif;padding:24px max(16px,env(safe-area-inset-left))}
+.wrap{max-width:1240px;margin:0 auto}
+.top h1{font:700 28px/1.2 Sora,sans-serif;margin-bottom:6px}
+.top p{color:var(--mute);max-width:80ch}
+.bar{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 26px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--band);position:sticky;top:8px;z-index:5}
+.bar b{font-size:13px;margin-right:4px;align-self:center}
+.bar button{padding:8px 14px;border:1.5px solid var(--line);border-radius:99px;background:#fff;color:var(--navy);font:600 14px Inter,sans-serif;cursor:pointer}
+.bar button.on{background:var(--navy);border-color:var(--navy);color:var(--amber)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:980px){.grid{grid-template-columns:minmax(0,1fr)}}
+.panel{border:1px solid var(--line);border-radius:18px;padding:22px;background:#fff}
+.tag{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font:600 13px Inter,sans-serif;color:var(--mute);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.tag b{color:var(--navy);font-size:15px}
+/* Lufthansa-style scale: sizes follow the measured reference, fonts come from each panel */
+.panel{--h1:36px;--h2:36px;--h3:24px;--body:18px;--lead:18px}
+.phone .panel{--h1:28px;--h2:28px;--h3:20px}
+.b16 .panel{--body:16px;--lead:16px}.b14 .panel{--body:14px;--lead:16px}
+.s h1{font-family:var(--fh);font-weight:300;font-size:var(--h1);line-height:1.1}
+.s h2{font-family:var(--fh);font-weight:300;font-size:var(--h2);line-height:1.1;margin:18px 0 8px}
+.s h3{font-family:var(--fh);font-weight:700;font-size:var(--h3);line-height:1.1;margin:18px 0 8px}
+.s .sent{font-family:var(--ft);font-weight:700;font-size:18px;line-height:1.5;margin-top:8px}
+.s .lead{font-family:var(--ft);font-weight:400;font-size:var(--lead);line-height:1.5;margin-top:6px;color:var(--mute)}
+.s p.body{font-family:var(--ft);font-weight:400;font-size:var(--body);line-height:1.5;margin-top:8px}
+.s .card{margin-top:12px;border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--band)}
+.s .card h4{font-family:var(--ft);font-weight:700;font-size:18px;line-height:1.5}
+.s .card p{font-family:var(--ft);font-size:var(--body);line-height:1.5;margin-top:2px}
+.s .btn{display:inline-block;margin-top:14px;padding:12px 20px;border-radius:12px;background:var(--navy);color:var(--amber);font-family:var(--ft);font-weight:700;font-size:18px;line-height:1.5}
+.s .lbl{font-family:var(--ft);font-weight:300;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.s .price{font-family:var(--fh);font-weight:700;font-size:var(--h3)}
+.cur{--fh:Sora,sans-serif;--ft:Inter,sans-serif}
+.pa{--fh:'Outfit',sans-serif;--ft:'Source Sans 3',sans-serif}
+.pb{--fh:'Figtree',sans-serif;--ft:'Figtree',sans-serif}
+.pc{--fh:'Albert Sans',sans-serif;--ft:'Inter',sans-serif}
+.note{margin-top:22px;padding:14px 16px;border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:12px;font-size:14px;color:var(--mute)}
+</style>
+</head>
+<body>
+<div class="wrap" id="root">
+  <div class="top">
+    <h1>Font samples</h1>
+    <p>The same content set in four font pairings, using the sizes measured on two Lufthansa pages: page and section titles 36 px light (28 px on phones), sub-headings 24 px bold (20 px), card titles and buttons 18 px bold, and body text 18 px regular. Use the controls to see phone sizes and smaller body sizes.</p>
+  </div>
+  <div class="bar" role="group" aria-label="Sample controls">
+    <b>Size</b><button type="button" class="on" data-set="desk">Desktop sizes</button><button type="button" data-set="phone">Phone sizes</button>
+    <b style="margin-left:14px">Body text</b><button type="button" class="on" data-set="b18">18 px (reference)</button><button type="button" data-set="b16">16 px</button><button type="button" data-set="b14">14 px</button>
+  </div>
+
+  <div class="grid" id="grid">
+    <section class="panel s cur"><div class="tag"><b>Current</b><span>Sora + Inter</span></div>
+      <span class="lbl">Pricing</span><h1>Predictable, flat licensing for any scale.</h1>
+      <p class="sent">A flat annual software license. You supply the compute.</p>
+      <p class="lead">Zero per-seat penalties. Zero token markups. Choose the tier that matches your team's size and keep your data inside your firewall.</p>
+      <h2>Compare the tiers</h2><h3>Enterprise</h3><p class="price">$3,600 / month</p>
+      <p class="body">Flat team fee for up to 400 users, billed annually at $43,200 a year. Prompts are unlimited within the compute you provision. Compute is paid directly to your own provider.</p>
+      <div class="card"><h4>Bring your own compute</h4><p>Run on your own cloud account or GPU hardware and pay your provider directly, with no token markup.</p></div>
+      <span class="btn">Request a quote</span></section>
+
+    <section class="panel s pa"><div class="tag"><b>Option A</b><span>Outfit + Source Sans 3</span></div>
+      <span class="lbl">Pricing</span><h1>Predictable, flat licensing for any scale.</h1>
+      <p class="sent">A flat annual software license. You supply the compute.</p>
+      <p class="lead">Zero per-seat penalties. Zero token markups. Choose the tier that matches your team's size and keep your data inside your firewall.</p>
+      <h2>Compare the tiers</h2><h3>Enterprise</h3><p class="price">$3,600 / month</p>
+      <p class="body">Flat team fee for up to 400 users, billed annually at $43,200 a year. Prompts are unlimited within the compute you provision. Compute is paid directly to your own provider.</p>
+      <div class="card"><h4>Bring your own compute</h4><p>Run on your own cloud account or GPU hardware and pay your provider directly, with no token markup.</p></div>
+      <span class="btn">Request a quote</span></section>
+
+    <section class="panel s pb"><div class="tag"><b>Option B</b><span>Figtree (headings and text)</span></div>
+      <span class="lbl">Pricing</span><h1>Predictable, flat licensing for any scale.</h1>
+      <p class="sent">A flat annual software license. You supply the compute.</p>
+      <p class="lead">Zero per-seat penalties. Zero token markups. Choose the tier that matches your team's size and keep your data inside your firewall.</p>
+      <h2>Compare the tiers</h2><h3>Enterprise</h3><p class="price">$3,600 / month</p>
+      <p class="body">Flat team fee for up to 400 users, billed annually at $43,200 a year. Prompts are unlimited within the compute you provision. Compute is paid directly to your own provider.</p>
+      <div class="card"><h4>Bring your own compute</h4><p>Run on your own cloud account or GPU hardware and pay your provider directly, with no token markup.</p></div>
+      <span class="btn">Request a quote</span></section>
+
+    <section class="panel s pc"><div class="tag"><b>Option C</b><span>Albert Sans + Inter</span></div>
+      <span class="lbl">Pricing</span><h1>Predictable, flat licensing for any scale.</h1>
+      <p class="sent">A flat annual software license. You supply the compute.</p>
+      <p class="lead">Zero per-seat penalties. Zero token markups. Choose the tier that matches your team's size and keep your data inside your firewall.</p>
+      <h2>Compare the tiers</h2><h3>Enterprise</h3><p class="price">$3,600 / month</p>
+      <p class="body">Flat team fee for up to 400 users, billed annually at $43,200 a year. Prompts are unlimited within the compute you provision. Compute is paid directly to your own provider.</p>
+      <div class="card"><h4>Bring your own compute</h4><p>Run on your own cloud account or GPU hardware and pay your provider directly, with no token markup.</p></div>
+      <span class="btn">Request a quote</span></section>
+  </div>
+  <p class="note">This is a preview page only. It is not linked from the website. All fonts here are free (open-licence) and would be hosted on your own server, like the current fonts.</p>
+</div>
+<script>
+const root=document.getElementById('root');
+document.querySelectorAll('.bar button').forEach(b=>b.addEventListener('click',()=>{
+  const k=b.dataset.set;
+  if(k==='desk'||k==='phone'){root.classList.toggle('phone',k==='phone');document.querySelectorAll('[data-set=desk],[data-set=phone]').forEach(x=>x.classList.toggle('on',x===b));}
+  else{root.classList.remove('b16','b14');if(k!=='b18')root.classList.add(k);document.querySelectorAll('[data-set=b18],[data-set=b16],[data-set=b14]').forEach(x=>x.classList.toggle('on',x===b));}
+}));
+</script>
+</body>
+</html>
