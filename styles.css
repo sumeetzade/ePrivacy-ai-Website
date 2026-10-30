@@ -905,3 +905,17 @@ h1,h2,.sec-title,.sec-title.md,h1.h2like,.page-hero h1,.hero h1,.calc-head h2,.c
 @media (max-width:700px){
   :root{--t-h1:28px;--t-h2:28px;--t-h3:20px}
 }
+
+/* eyebrow to heading gap: same as the home page hero on every page */
+.eyebrow + h1,.eyebrow + h2,.eyebrow + .sec-title,.sec-head > .eyebrow + h2,.sec-head > .eyebrow + h1,.sec-head > .eyebrow + .sec-title{margin-top:12px}
+
+/* platform: on-page links sit directly under the breadcrumb */
+.crumb-bar .jump{margin-top:12px;margin-bottom:24px}
+
+/* contact: the shaded band starts right under the breadcrumb, so give the content room */
+.crumb-bar + .sec.contact{padding-top:40px}
+
+/* form labels and spec names use the main site font, not the monospace one */
+.form label{font:500 var(--t-body) var(--f-body)}
+.spec-row b{font:600 var(--t-body) var(--f-body)}
+.form input,.form select,.form textarea{font-size:var(--t-body)}

@@ -298,6 +298,13 @@
       return false;
     } finally { btn.disabled = false; btn.innerHTML = label; }
   }
+  // pricing buttons link here with ?tier=starter|standard|pro|enterprise: preselect that tier
+  const tierSel = $('#tier');
+  if (tierSel) {
+    const want = (new URLSearchParams(location.search).get('tier') || '').toLowerCase();
+    const opt = [...tierSel.options].find(o => o.value.toLowerCase() === want);
+    if (opt) tierSel.value = opt.value;
+  }
   $('#form')?.addEventListener('submit', async e => {
     e.preventDefault();
     let ok = true;

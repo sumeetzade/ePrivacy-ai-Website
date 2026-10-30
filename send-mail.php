@@ -121,11 +121,13 @@ if ($type === 'contact') {
     if ($name === '' || $org === '') {
         respond(422, ['ok' => false, 'error' => 'Please fill in your name and organization.']);
     }
-    $subject = 'Website enquiry: ' . $org;
+    $tier = line($in['tier'] ?? '', 40);
+    $subject = 'Website enquiry: ' . $org . ($tier !== '' && $tier !== 'Not sure yet' ? ' (' . $tier . ' tier)' : '');
     $body = "New website enquiry\n\n"
         . "Name and title: $name\n"
         . "Organization: $org\n"
         . "Email: $email\n"
+        . 'Tier of interest: ' . ($tier !== '' ? $tier : 'Not specified') . "\n"
         . 'Deployment target: ' . line($in['target'] ?? '') . "\n"
         . 'Operational focus: ' . line($in['focus'] ?? '') . "\n"
         . 'Timeline: ' . line($in['timeline'] ?? '') . "\n\n"
