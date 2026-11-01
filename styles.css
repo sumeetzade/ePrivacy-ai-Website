@@ -919,3 +919,8 @@ h1,h2,.sec-title,.sec-title.md,h1.h2like,.page-hero h1,.hero h1,.calc-head h2,.c
 .form label{font:500 var(--t-body) var(--f-body)}
 .spec-row b{font:600 var(--t-body) var(--f-body)}
 .form input,.form select,.form textarea{font-size:var(--t-body)}
+
+/* sentence-style text uses the main site font; the monospace font stays only on small uppercase labels */
+.cmp-r span,.deep-grid b,.deep summary span,.bill-note,.tier-badges span,.cmp .t-size,.cmp .t-bill,.tier .price span,
+.crumbs,.who,.reg .rf,.modal-box label,.ticks,.seg button small,.ctl output,.brk,.bl b,.node small,.answers em,.ans small,
+.matrix .note,.pipe,.slider-box label,.costviz label,.chips li,.sh-count,.verdict,.egress,.perim-label{font-family:var(--f-body)}
