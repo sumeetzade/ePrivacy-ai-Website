@@ -947,3 +947,9 @@ h1,h2,.sec-title,.sec-title.md,h1.h2like,.page-hero h1,.hero h1,.calc-head h2,.c
 
 .why-grid .card{border-left:4px solid var(--amber)}
 #offers h3.sub,#why h3.sub{font-size:var(--t-box-title)}
+
+/* one gap between a section title and the line under it, on every page */
+.sec-head > h1,.sec-head > h2,.sec-head > .sec-title,.hero h1,h1.h2like{margin-bottom:10px}
+.sec-head > h1 + *,.sec-head > h2 + *,.sec-head > .sec-title + *,.hero h1 + *,h1.h2like + *{margin-top:0}
+.two .reveal > h1,.two .reveal > h2,.ph-in h1{margin-bottom:10px}
+.two .reveal > h1 + *,.two .reveal > h2 + *,.ph-in h1 + *{margin-top:0}
