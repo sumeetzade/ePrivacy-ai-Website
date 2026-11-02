@@ -21,5 +21,6 @@
 - [Platform](https://eprivacy-ai.com/platform): architecture, model routing, knowledge base and guardrails
 - [Trust & Compliance](https://eprivacy-ai.com/security): security and regulatory alignment
 - [Pricing](https://eprivacy-ai.com/pricing): tiers, cost examples, ROI calculator, deployment
+- [Value Added Services](https://eprivacy-ai.com/value-added-services): model advisory, agentic engineering, governance, managed operations, service bundles
 - [About](https://eprivacy-ai.com/about): the company behind ePrivacy-AI
 - [Contact](https://eprivacy-ai.com/contact)

@@ -924,3 +924,10 @@ h1,h2,.sec-title,.sec-title.md,h1.h2like,.page-hero h1,.hero h1,.calc-head h2,.c
 .cmp-r span,.deep-grid b,.deep summary span,.bill-note,.tier-badges span,.cmp .t-size,.cmp .t-bill,.tier .price span,
 .crumbs,.who,.reg .rf,.modal-box label,.ticks,.seg button small,.ctl output,.brk,.bl b,.node small,.answers em,.ans small,
 .matrix .note,.pipe,.slider-box label,.costviz label,.chips li,.sh-count,.verdict,.egress,.perim-label{font-family:var(--f-body)}
+
+/* value added services: service bundle cards */
+.bundles .card{display:flex;flex-direction:column}
+.bundles .bmeta{margin:0 0 12px;font-weight:600;color:var(--indigo)}
+.bundles ul{margin:0;padding-left:18px;display:grid;gap:8px;font-size:var(--t-small);color:var(--ink)}
+.sec-head .lead + .lead{margin-top:12px!important}
+.bundles h4 .pkg{display:block;margin-bottom:4px;font:600 var(--t-label) var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
