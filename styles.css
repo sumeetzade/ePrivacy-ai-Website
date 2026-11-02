@@ -925,9 +925,25 @@ h1,h2,.sec-title,.sec-title.md,h1.h2like,.page-hero h1,.hero h1,.calc-head h2,.c
 .crumbs,.who,.reg .rf,.modal-box label,.ticks,.seg button small,.ctl output,.brk,.bl b,.node small,.answers em,.ans small,
 .matrix .note,.pipe,.slider-box label,.costviz label,.chips li,.sh-count,.verdict,.egress,.perim-label{font-family:var(--f-body)}
 
-/* value added services: service bundle cards */
-.bundles .card{display:flex;flex-direction:column}
-.bundles .bmeta{margin:0 0 12px;font-weight:600;color:var(--indigo)}
-.bundles ul{margin:0;padding-left:18px;display:grid;gap:8px;font-size:var(--t-small);color:var(--ink)}
 .sec-head .lead + .lead{margin-top:12px!important}
-.bundles h4 .pkg{display:block;margin-bottom:4px;font:600 var(--t-label) var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+
+/* value added services */
+.vas-list{margin-top:8px}
+.vas-cat{padding:16px 0 8px;border-top:3px solid var(--indigo)}
+.vas-cat:last-child{border-bottom:1px solid var(--line);padding-bottom:16px}
+.vas-cat h3{margin:0 0 10px;font:700 var(--t-box-title) var(--f-head);line-height:1.25;letter-spacing:-.01em;color:var(--ink)}
+.vas-items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
+.vas-items p{margin:0 0 10px;font-size:var(--t-small);color:var(--mute)}
+.vas-items p b{font-weight:700;color:var(--ink)}
+@media (max-width:640px){.vas-items{grid-template-columns:minmax(0,1fr)}.vas-items p{margin-bottom:8px}}
+
+.bundles .card{display:flex;flex-direction:column;border-top:4px solid var(--amber)}
+.bundles h4 .pkg{display:block;margin-bottom:4px;font:600 .8125rem var(--f-body);color:var(--indigo)}
+.bundles .bmeta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.bundles .bmeta span{padding:4px 12px;border:1px solid var(--line);border-radius:99px;background:#fff;font:600 .8125rem var(--f-body);color:var(--indigo)}
+.bundles ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:var(--t-small);color:var(--ink)}
+.bundles li{position:relative;padding-left:20px}
+.bundles li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:2px;background:var(--amber)}
+
+.why-grid .card{border-left:4px solid var(--amber)}
+#offers h3.sub,#why h3.sub{font-size:var(--t-box-title)}
