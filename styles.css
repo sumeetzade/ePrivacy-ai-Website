@@ -953,3 +953,11 @@ h1,h2,.sec-title,.sec-title.md,h1.h2like,.page-hero h1,.hero h1,.calc-head h2,.c
 .sec-head > h1 + *,.sec-head > h2 + *,.sec-head > .sec-title + *,.hero h1 + *,h1.h2like + *{margin-top:0}
 .two .reveal > h1,.two .reveal > h2,.ph-in h1{margin-bottom:10px}
 .two .reveal > h1 + *,.two .reveal > h2 + *,.ph-in h1 + *{margin-top:0}
+
+/* value added services: trust-page table layout */
+.vas-tables{margin-top:8px}
+.vas-tables h3.sub{margin:32px 0 12px;font-size:var(--t-box-title)}
+.vas-tables h3.sub:first-child{margin-top:16px}
+.vas-table{table-layout:fixed}
+.vas-table thead th:first-child,.vas-table tbody th{width:32%}
+.vas-table td:last-child{width:auto}
